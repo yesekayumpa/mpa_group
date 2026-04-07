@@ -104,20 +104,6 @@ export const Markets = () => {
             Un réseau mondial pour les fruits tropicaux d'exception du Sénégal
           </p>
         </div>
-
-        <div className="text-center mb-16">
-          <span className="text-primary font-bold text-[10px] uppercase tracking-[0.3em] mb-3 block">NOTRE PRÉSENCE</span>
-          <h3 className="text-3xl lg:text-5xl font-display font-extrabold text-slate-900 dark:text-white mb-6 leading-tight">
-            Un Réseau Mondial <span className="text-gradient">Sans Frontières.</span>
-          </h3>
-          <p className="text-base text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed mb-10">
-            MPA GROUP dessert les principaux marchés internationaux avec une efficacité logistique inégalée. De l'Europe au Moyen-Orient, nous sommes le pont entre le Sénégal et le monde.
-          </p>
-          <Link to="/markets" className="btn-elegant-primary !px-8 !py-3 text-xs tracking-widest uppercase">
-            EXPLORER NOS MARCHÉS <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
-
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Interactive Map */}
           <motion.div

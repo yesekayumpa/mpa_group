@@ -6,6 +6,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useScroll, useSpring } from 'motion/react';
 import { Routes, Route, useLocation } from 'react-router-dom';
+import { LanguageProvider } from './contexts/LanguageContext';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
@@ -72,17 +73,18 @@ export default function App() {
   }, [location.pathname]);
 
   return (
-    <div className="relative min-h-screen bg-white">
-      {/* Loading Screen */}
-      {showLoading && <LoadingScreen onComplete={() => setShowLoading(false)} />}
-      
-      {/* Progress Bar */}
-      <motion.div 
-        className="fixed top-0 left-0 right-0 h-1.5 bg-secondary z-[60] origin-left" 
-        style={{ scaleX }} 
-      />
+    <LanguageProvider>
+      <div className="relative min-h-screen bg-white">
+        {/* Loading Screen */}
+        {showLoading && <LoadingScreen onComplete={() => setShowLoading(false)} />}
+        
+        {/* Progress Bar */}
+        <motion.div 
+          className="fixed top-0 left-0 right-0 h-1.5 bg-secondary z-[60] origin-left" 
+          style={{ scaleX }} 
+        />
 
-      <Header />
+        <Header />
       
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -112,6 +114,7 @@ export default function App() {
           Besoin d'aide ? Discutons !
         </div>
       </a>
-    </div>
+      </div>
+    </LanguageProvider>
   );
 }

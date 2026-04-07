@@ -74,36 +74,7 @@ export const Gallery = () => {
           </p>
         </div>
 
-        <div className="text-center mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 rounded-full text-accent text-xs font-bold uppercase tracking-widest mb-6"
-          >
-            <Camera className="w-4 h-4" />
-            NOTRE UNIVERS EN IMAGES
-          </motion.div>
-          
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-4xl lg:text-6xl font-display font-extrabold text-white mb-8 leading-tight"
-          >
-            Immersion dans <br />
-            <span className="text-accent">nos coulisses d'exception.</span>
-          </motion.h2>
-          
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-slate-400 max-w-2xl mx-auto text-lg mb-12"
-          >
-            Découvrez notre savoir-faire unique, de la terre fertile du Sénégal jusqu'aux marchés internationaux les plus exigeants.
-          </motion.p>
+        <div className="text-center mb-16">      
 
           {/* Filter Controls */}
           <motion.div 

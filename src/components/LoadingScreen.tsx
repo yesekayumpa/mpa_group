@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export const LoadingScreen = ({ onComplete }: { onComplete?: () => void }) => {
+  const { t } = useLanguage();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -162,7 +164,7 @@ export const LoadingScreen = ({ onComplete }: { onComplete?: () => void }) => {
               transition={{ duration: 2, repeat: Infinity }}
               className="mt-4 text-white/60 text-xs font-medium"
             >
-              CHARGEMENT...
+              {t.loading.charging}
             </motion.div>
           </motion.div>
 
@@ -207,7 +209,7 @@ export const LoadingScreen = ({ onComplete }: { onComplete?: () => void }) => {
                 }}
                 className="relative text-white font-bold text-sm tracking-widest uppercase"
               >
-                Bienvenue sur MPA-GROUP
+                {t.loading.welcome}
               </motion.span>
             </motion.div>
           </motion.div>

@@ -83,24 +83,53 @@ export const Processus = () => {
                 transition={{ delay: i * 0.1 }}
                 className="relative group"
               >
-                <div className="bg-white dark:bg-slate-900/80 backdrop-blur-sm p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-xl hover:shadow-primary/5 transition-all duration-500 h-full flex flex-col items-center text-center overflow-hidden">
-                  {/* Background Step Number */}
-                  <span className="absolute -right-1 -top-1 text-5xl font-black text-slate-100 dark:text-slate-800/50 select-none pointer-events-none group-hover:text-primary/5 transition-colors duration-500">
-                    {i + 1}
-                  </span>
-
-                  <div className={`w-10 h-10 rounded-lg ${step.color} text-white flex items-center justify-center mb-5 shadow-md group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 relative z-10`}>
-                    {React.cloneElement(step.icon as React.ReactElement, { className: "w-5 h-5" })}
+                <div className="relative group">
+                  {/* Card Container */}
+                  <div className="bg-white dark:bg-slate-900/90 backdrop-blur-md p-6 rounded-3xl border border-slate-200/50 dark:border-slate-700/50 shadow-lg hover:shadow-2xl hover:shadow-primary/10 transition-all duration-700 h-full flex flex-col items-center text-center overflow-hidden relative">
+                    
+                    {/* Animated Background Gradient */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-transparent via-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                    
+                    {/* Decorative Corner Accent */}
+                    <div className={`absolute top-0 right-0 w-20 h-20 ${step.color} opacity-10 rounded-bl-full group-hover:opacity-20 transition-opacity duration-700`} />
+                    
+                    
+                    {/* Icon Container with Enhanced Effects */}
+                    <div className="relative mb-6">
+                      <div className={`w-14 h-14 ${step.color} rounded-2xl flex items-center justify-center text-white shadow-xl group-hover:shadow-2xl transition-all duration-500 relative z-10 transform group-hover:scale-110 group-hover:rotate-6`}>
+                        {React.cloneElement(step.icon as React.ReactElement, { className: "w-7 h-7" })}
+                      </div>
+                      
+                      {/* Glow Effect */}
+                      <div className={`absolute inset-0 ${step.color} rounded-2xl blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-500`} />
+                      
+                      {/* Rotating Ring */}
+                      <div className="absolute inset-0 rounded-2xl border-2 border-slate-200 dark:border-slate-700 group-hover:border-primary/30 transition-all duration-500" />
+                    </div>
+                    
+                    {/* Content Section */}
+                    <div className="relative z-10 flex-1 flex flex-col">
+                                            
+                      {/* Title */}
+                      <h3 className="text-lg font-display font-extrabold text-slate-900 dark:text-white mb-3 leading-tight group-hover:text-primary transition-colors duration-500">
+                        {step.title}
+                      </h3>
+                      
+                      {/* Description */}
+                      <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed flex-1">
+                        {step.desc}
+                      </p>
+                      
+                      {/* Hover Indicator */}
+                      <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        <div className={`w-full h-0.5 ${step.color} rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left`} />
+                      </div>
+                    </div>
+                    
+                    {/* Floating Elements */}
+                    <div className="absolute top-1/4 -left-4 w-2 h-2 bg-primary/20 rounded-full group-hover:animate-pulse" />
+                    <div className="absolute bottom-1/4 -right-4 w-3 h-3 bg-primary/10 rounded-full group-hover:animate-pulse delay-75" />
                   </div>
-                  
-                  <div className="mb-2 relative z-10">
-                    <span className="text-[8px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest block mb-1">Étape 0{i + 1}</span>
-                    <h3 className="text-base font-display font-extrabold text-slate-900 dark:text-white group-hover:text-primary transition-colors leading-tight">{step.title}</h3>
-                  </div>
-                  
-                  <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed relative z-10">
-                    {step.desc}
-                  </p>
                 </div>
 
                 {i < STEPS.length - 1 && (

@@ -4,7 +4,6 @@ import { Menu, X, Leaf } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
 const navLinks = [
-  { name: 'Accueil', path: '/' },
   { name: 'À propos', path: '/about' },
   { name: 'Produits', path: '/products' },
   { name: 'Services', path: '/services' },

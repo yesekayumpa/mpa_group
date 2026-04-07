@@ -1,31 +1,34 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { Link } from 'react-router-dom';
 import { Menu, X, Phone, Mail, MapPin, Facebook, Twitter, Instagram, Linkedin, Search, Leaf, Globe } from 'lucide-react';
 import { cn } from '../lib/utils';
+import { useLanguage } from '../contexts/LanguageContext';
 
-const SECTIONS = [
-  { name: 'Accueil', href: '#accueil' },
-  { name: 'À propos', href: '#apropos' },
-  { name: 'Produits', href: '#produits' },
-  { name: 'Services', href: '#services' },
-  { name: 'Processus', href: '#processus' },
-  { name: 'Marché', href: '#marche' },
-  { name: 'Galerie', href: '#galerie' },
-  { name: 'Contact', href: '#contact' },
+const getSections = (t: any) => [
+  { name: t.nav.about, href: '#apropos' },
+  { name: t.nav.products, href: '#produits' },
+  { name: t.nav.services, href: '#services' },
+  { name: t.nav.process, href: '#processus' },
+  { name: t.nav.market, href: '#marche' },
+  { name: t.nav.gallery, href: '#galerie' },
+  { name: t.nav.contact, href: '#contact' },
 ];
 
 export const Header = () => {
+  const { language, setLanguage, t } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState('accueil');
+  const [activeSection, setActiveSection] = useState('apropos');
+  const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
       
       // Scroll-spy logic
-      const sections = SECTIONS.map(s => s.href.slice(1));
+      const sections = getSections(t).map(s => s.href.slice(1));
       const scrollPosition = window.scrollY + 100;
       
       for (const section of sections) {
@@ -40,10 +43,20 @@ export const Header = () => {
       }
     };
 
+    const handleClickOutside = (event: MouseEvent) => {
+      if (isLangMenuOpen) {
+        setIsLangMenuOpen(false);
+      }
+    };
+
     window.addEventListener('scroll', handleScroll);
+    window.addEventListener('click', handleClickOutside);
     handleScroll(); // Initial check
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('click', handleClickOutside);
+    };
+  }, [isLangMenuOpen]);
 
   return (
     <header className={cn(
@@ -83,18 +96,18 @@ export const Header = () => {
 
       <nav className="max-w-7xl mx-auto px-6 lg:px-12 py-4">
         <div className="flex justify-between items-center">
-          <div className="flex items-center gap-3">
-            <div className="w-9 h-9 bg-primary rounded-lg flex items-center justify-center shadow-lg shadow-primary/20">
+          <Link to="/" className="flex items-center gap-3 group hover:opacity-80 transition-opacity">
+            <div className="w-9 h-9 bg-primary rounded-lg flex items-center justify-center shadow-lg shadow-primary/20 group-hover:shadow-primary/30 transition-shadow">
               <Leaf className="text-white w-5 h-5" />
             </div>
             <div className="flex flex-col leading-none">
-              <span className="text-lg font-display font-extrabold text-primary tracking-tighter">MPA GROUP</span>
+              <span className="text-lg font-display font-extrabold text-primary tracking-tighter group-hover:text-primary/80 transition-colors">MPA GROUP</span>
               <span className="text-[9px] font-bold text-slate-400 tracking-[0.2em] uppercase">Export Excellence</span>
             </div>
-          </div>
+          </Link>
 
           <div className="hidden lg:flex items-center gap-8">
-            {SECTIONS.map((item) => {
+            {getSections(t).map((item) => {
               const sectionId = item.href.slice(1);
               const isActive = activeSection === sectionId;
               
@@ -119,10 +132,58 @@ export const Header = () => {
             })}
             
             <div className="flex items-center gap-3 ml-4">
-              <button className="flex items-center gap-2 px-4 py-2 rounded-xl border transition-all text-[11px] font-bold uppercase tracking-widest border-slate-200 text-secondary dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800">
-                <Globe className="w-3 h-3" />
-                fr
-              </button>
+              <div className="relative">
+                <button 
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setIsLangMenuOpen(!isLangMenuOpen);
+                  }}
+                  className="flex items-center gap-2 px-4 py-2 rounded-xl border transition-all text-[11px] font-bold uppercase tracking-widest border-slate-200 text-secondary hover:bg-slate-50"
+                >
+                  <Globe className="w-3 h-3" />
+                  {language === 'fr' ? 'fr' : 'en'}
+                </button>
+                
+                {/* Language Dropdown */}
+                <AnimatePresence>
+                  {isLangMenuOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                      transition={{ duration: 0.2 }}
+                      className="absolute top-full right-0 mt-2 bg-white border border-slate-200 rounded-xl shadow-lg overflow-hidden min-w-[120px]"
+                    >
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setLanguage('fr');
+                          setIsLangMenuOpen(false);
+                        }}
+                        className={`w-full flex items-center gap-3 px-4 py-3 text-sm font-medium transition-colors hover:bg-slate-50 ${
+                          language === 'fr' ? 'bg-primary/10 text-primary' : 'text-slate-700'
+                        }`}
+                      >
+                        <span className="text-base">fr</span>
+                        <span>Français</span>
+                      </button>
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setLanguage('en');
+                          setIsLangMenuOpen(false);
+                        }}
+                        className={`w-full flex items-center gap-3 px-4 py-3 text-sm font-medium transition-colors hover:bg-slate-50 ${
+                          language === 'en' ? 'bg-primary/10 text-primary' : 'text-slate-700'
+                        }`}
+                      >
+                        <span className="text-base">en</span>
+                        <span>English</span>
+                      </button>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
             </div>
           </div>
 
@@ -142,7 +203,7 @@ export const Header = () => {
             className="lg:hidden absolute top-full left-0 right-0 bg-white border-b border-slate-200 shadow-2xl overflow-hidden"
           >
             <div className="flex flex-col p-8 gap-6">
-              {SECTIONS.map((item) => {
+              {getSections(t).map((item) => {
                 const sectionId = item.href.slice(1);
                 const isActive = activeSection === sectionId;
                 
