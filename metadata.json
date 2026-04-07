@@ -1,0 +1,7 @@
+{
+  "name": "MPA GROUP - Exportation de Fruits",
+  "description": "Site web professionnel pour MPA GROUP, leader sénégalais dans l'exportation de fruits tropicaux vers le marché international.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
