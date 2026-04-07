@@ -130,61 +130,6 @@ export const Header = () => {
                 </a>
               );
             })}
-            
-            <div className="flex items-center gap-3 ml-4">
-              <div className="relative">
-                <button 
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setIsLangMenuOpen(!isLangMenuOpen);
-                  }}
-                  className="flex items-center gap-2 px-4 py-2 rounded-xl border transition-all text-[11px] font-bold uppercase tracking-widest border-slate-200 text-secondary hover:bg-slate-50"
-                >
-                  <Globe className="w-3 h-3" />
-                  {language === 'fr' ? 'fr' : 'en'}
-                </button>
-                
-                {/* Language Dropdown */}
-                <AnimatePresence>
-                  {isLangMenuOpen && (
-                    <motion.div
-                      initial={{ opacity: 0, y: -10, scale: 0.95 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: -10, scale: 0.95 }}
-                      transition={{ duration: 0.2 }}
-                      className="absolute top-full right-0 mt-2 bg-white border border-slate-200 rounded-xl shadow-lg overflow-hidden min-w-[120px]"
-                    >
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setLanguage('fr');
-                          setIsLangMenuOpen(false);
-                        }}
-                        className={`w-full flex items-center gap-3 px-4 py-3 text-sm font-medium transition-colors hover:bg-slate-50 ${
-                          language === 'fr' ? 'bg-primary/10 text-primary' : 'text-slate-700'
-                        }`}
-                      >
-                        <span className="text-base">fr</span>
-                        <span>Français</span>
-                      </button>
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setLanguage('en');
-                          setIsLangMenuOpen(false);
-                        }}
-                        className={`w-full flex items-center gap-3 px-4 py-3 text-sm font-medium transition-colors hover:bg-slate-50 ${
-                          language === 'en' ? 'bg-primary/10 text-primary' : 'text-slate-700'
-                        }`}
-                      >
-                        <span className="text-base">en</span>
-                        <span>English</span>
-                      </button>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            </div>
           </div>
 
           <button className="lg:hidden p-2 text-slate-600" onClick={() => setIsMenuOpen(!isMenuOpen)}>

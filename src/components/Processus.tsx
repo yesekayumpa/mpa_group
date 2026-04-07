@@ -2,35 +2,37 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { ClipboardCheck, Package, Ship, CheckCircle2, ArrowRight } from 'lucide-react';
-
-const STEPS = [
-  {
-    icon: <ClipboardCheck />,
-    title: "Commande & Devis",
-    desc: "Réception de votre demande, étude de faisabilité et émission d'un devis détaillé sous 24h.",
-    color: "bg-indigo-600"
-  },
-  {
-    icon: <Package />,
-    title: "Conditionnement",
-    desc: "Sélection rigoureuse des fruits et emballage aux normes internationales (GlobalGAP).",
-    color: "bg-emerald-600"
-  },
-  {
-    icon: <Ship />,
-    title: "Logistique & Fret",
-    desc: "Transport sécurisé via chaîne de froid maîtrisée (Air ou Mer) vers votre destination.",
-    color: "bg-sky-600"
-  },
-  {
-    icon: <CheckCircle2 />,
-    title: "Livraison & Qualité",
-    desc: "Remise des documents douaniers et livraison finale avec contrôle qualité à l'arrivée.",
-    color: "bg-amber-600"
-  }
-];
+import { useLanguage } from '../contexts/LanguageContext';
 
 export const Processus = () => {
+  const { t } = useLanguage();
+  
+  const STEPS = [
+    {
+      icon: <ClipboardCheck />,
+      title: t.process.step1Title,
+      desc: t.process.step1Desc,
+      color: "bg-indigo-600"
+    },
+    {
+      icon: <Package />,
+      title: t.process.step2Title,
+      desc: t.process.step2Desc,
+      color: "bg-emerald-600"
+    },
+    {
+      icon: <Ship />,
+      title: t.process.step3Title,
+      desc: t.process.step3Desc,
+      color: "bg-sky-600"
+    },
+    {
+      icon: <CheckCircle2 />,
+      title: t.process.step4Title,
+      desc: t.process.step4Desc,
+      color: "bg-amber-600"
+    }
+  ];
   return (
     <section id="processus" className="section-padding bg-slate-50 dark:bg-slate-950 relative overflow-hidden">
       {/* Professional Background Elements */}
@@ -144,7 +146,7 @@ export const Processus = () => {
 
         <div className="mt-12 text-center">
           <Link to="/processus" className="btn-elegant-primary !px-8 !py-3 text-xs tracking-widest uppercase">
-            DÉTAILS DU PROCESSUS <ArrowRight className="w-4 h-4" />
+            {t.process.ctaButton} <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </div>

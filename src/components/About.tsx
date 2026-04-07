@@ -2,8 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { CheckCircle2, ArrowRight, Star } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export const About = () => {
+  const { t } = useLanguage();
   return (
     <section id="apropos" className="section-padding overflow-hidden">
       {/* Section Title */}
@@ -15,13 +17,13 @@ export const About = () => {
           className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-primary text-xs font-bold uppercase tracking-widest mb-4"
         >
           <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-          À PROPOS
+          {t.about.badge}
         </motion.div>
         <h2 className="text-4xl lg:text-6xl font-display font-extrabold text-black mb-6 leading-tight">
-          Découvrez <span className="text-gradient">Notre Histoire</span>
+          {t.about.title} <span className="text-gradient">{t.about.subtitle}</span>
         </h2>
         <p className="text-slate-600 dark:text-slate-400 text-lg max-w-3xl mx-auto">
-          Plus qu'une entreprise, un engagement pour l'excellence sénégalaise
+          {t.about.description}
         </p>
       </div>
 
@@ -79,21 +81,17 @@ export const About = () => {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
         >
-          <span className="text-secondary font-bold text-[10px] uppercase tracking-[0.3em] mb-3 block">NOTRE MISSION</span>
+          <span className="text-secondary font-bold text-[10px] uppercase tracking-[0.3em] mb-3 block">{t.about.missionBadge}</span>
           <h3 className="text-2xl lg:text-3xl font-display font-extrabold text-slate-900 dark:text-white mb-6 leading-tight">
-            Inspirer le monde avec <br />
-            <span className="text-gradient">le meilleur du Sénégal.</span>
+            {t.about.missionTitle} <br />
+            <span className="text-gradient">{t.about.missionSubtitle}</span>
           </h3>
           <p className="text-sm text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
-            MPA GROUP est une entreprise sénégalaise spécialisée dans la commercialisation et l’exportation des fruits vers le marché international. Nous nous positionnons comme un levier stratégique pour la mise en lumière des produits du terroir sénégalais.
+            {t.about.missionDescription}
           </p>
           
           <div className="space-y-4 mb-8">
-            {[
-              { title: 'Agriculture Durable', desc: 'Méthodes respectueuses de l\'environnement.' },
-              { title: 'Impact Social', desc: 'Soutien aux communautés rurales locales.' },
-              { title: 'Innovation Logistique', desc: 'Technologies de pointe pour une fraîcheur maximale.' },
-            ].map((item, i) => (
+            {t.about.values.map((item, i) => (
               <div key={i} className="flex gap-3">
                 <div className="flex-shrink-0 w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center mt-0.5">
                   <CheckCircle2 className="w-3 h-3 text-primary" />
@@ -107,7 +105,7 @@ export const About = () => {
           </div>
 
           <Link to="/about" className="btn-elegant-primary !px-8 !py-3 text-xs tracking-widest uppercase">
-            NOTRE VISION <ArrowRight className="w-4 h-4" />
+            {t.about.ctaButton} <ArrowRight className="w-4 h-4" />
           </Link>
         </motion.div>
       </div>

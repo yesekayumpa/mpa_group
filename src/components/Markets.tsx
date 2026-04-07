@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { Globe, MapPin, CheckCircle2, Award, ArrowRight, X, Plane, Ship, Truck } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const DESTINATIONS = [
   { 
@@ -70,6 +71,7 @@ const getTransportIcon = (transport: string) => {
 };
 
 export const Markets = () => {
+  const { t } = useLanguage();
   const [hoveredDestination, setHoveredDestination] = useState<typeof DESTINATIONS[0] | null>(null);
   const [selectedDestination, setSelectedDestination] = useState<typeof DESTINATIONS[0] | null>(null);
 
@@ -95,13 +97,13 @@ export const Markets = () => {
             className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-primary text-xs font-bold uppercase tracking-widest mb-4"
           >
             <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-            MARCHÉ
+            {t.markets.badge}
           </motion.div>
           <h2 className="text-4xl lg:text-6xl font-display font-extrabold text-slate-900 dark:text-white mb-6 leading-tight">
-            Nos <span className="text-gradient">Marchés</span>
+            {t.markets.title} <span className="text-gradient">{t.markets.subtitle}</span>
           </h2>
           <p className="text-slate-600 dark:text-slate-400 text-lg max-w-3xl mx-auto">
-            Un réseau mondial pour les fruits tropicaux d'exception du Sénégal
+            {t.markets.description}
           </p>
         </div>
         <div className="grid lg:grid-cols-2 gap-12 items-center">

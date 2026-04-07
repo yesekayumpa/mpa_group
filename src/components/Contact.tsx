@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { MapPin, Phone, Mail, Send, ChevronRight, ChevronLeft, CheckCircle2, ArrowRight } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export const Contact = () => {
+  const { t } = useLanguage();
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     name: '',
@@ -40,13 +42,13 @@ export const Contact = () => {
             className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-primary text-xs font-bold uppercase tracking-widest mb-4"
           >
             <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-            CONTACT
+            {t.contact.badge}
           </motion.div>
           <h2 className="text-4xl lg:text-6xl font-display font-extrabold text-slate-900 mb-6 leading-tight">
-            Contactez <span className="text-gradient">Nous</span>
+            {t.contact.title} <span className="text-gradient">{t.contact.subtitle}</span>
           </h2>
-          <p className="text-slate-600 text-lg max-w-3xl mx-auto">
-            Prêt à collaborer ? Notre équipe est à votre disposition pour vos projets d'exportation
+          <p className="text-slate-600 dark:text-slate-400 text-lg max-w-3xl mx-auto">
+            {t.contact.description}
           </p>
         </div>
 

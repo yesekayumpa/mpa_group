@@ -24,8 +24,40 @@ export const translations = {
     // About Section
     about: {
       badge: "À PROPOS",
-      title: "Découvrez Notre Histoire",
-      description: "Des fruits tropicaux d'exception, cultivés avec passion et exportés avec soin"
+      title: "Découvrez",
+      subtitle: "Notre Histoire",
+      description: "Plus qu'une entreprise, un engagement pour l'excellence sénégalaise",
+      missionBadge: "NOTRE MISSION",
+      missionTitle: "Inspirer le monde avec",
+      missionSubtitle: "le meilleur du Sénégal.",
+      missionDescription: "MPA GROUP est une entreprise sénégalaise spécialisée dans la commercialisation et l'exportation des fruits vers le marché international. Nous nous positionnons comme un levier stratégique pour la mise en lumière des produits du terroir sénégalais.",
+      values: [
+        { title: 'Agriculture Durable', desc: 'Méthodes respectueuses de l\'environnement.' },
+        { title: 'Impact Social', desc: 'Soutien aux communautés rurales locales.' },
+        { title: 'Innovation Logistique', desc: 'Technologies de pointe pour une fraîcheur maximale.' },
+      ],
+      ctaButton: "NOTRE VISION"
+    },
+    
+    // Process Section
+    process: {
+      step1Title: "Commande & Devis",
+      step1Desc: "Réception de votre demande, étude de faisabilité et émission d'un devis détaillé sous 24h.",
+      step2Title: "Conditionnement",
+      step2Desc: "Sélection rigoureuse des fruits et emballage aux normes internationales (GlobalGAP).",
+      step3Title: "Logistique & Fret",
+      step3Desc: "Transport sécurisé via chaîne de froid maîtrisée (Air ou Mer) vers votre destination.",
+      step4Title: "Livraison & Qualité",
+      step4Desc: "Remise des documents douaniers et livraison finale avec contrôle qualité à l'arrivée.",
+      ctaButton: "DÉTAILS DU PROCESSUS"
+    },
+    
+    // Markets Section
+    markets: {
+      badge: "MARCHÉ",
+      title: "Nos",
+      subtitle: "Marchés",
+      description: "Un réseau mondial pour les fruits tropicaux d'exception du Sénégal"
     },
     
     // Loading Screen
@@ -36,13 +68,10 @@ export const translations = {
     
     // Contact Form
     contact: {
-      title: "Contactez Nous",
-      subtitle: "Prêt à collaborer ? Notre équipe est à votre disposition pour vos projets d'exportation",
-      generalInfo: "Informations Générales",
-      orderDetails: "Détails de la Commande",
-      messageSend: "Message & Envoi",
-      success: "Demande Envoyée !",
-      successMessage: "Merci pour votre confiance. Un conseiller MPA GROUP vous contactera sous peu pour finaliser votre devis."
+      badge: "CONTACT",
+      title: "Contactez",
+      subtitle: "Nous",
+      description: "Prêt à découvrir les fruits tropicaux d'exception du Sénégal ? Contactez-nous pour une consultation personnalisée."
     }
   },
   
@@ -71,8 +100,40 @@ export const translations = {
     // About Section
     about: {
       badge: "ABOUT",
-      title: "Discover Our Story",
-      description: "Exceptional tropical fruits, grown with passion and exported with care"
+      title: "Discover",
+      subtitle: "Our Story",
+      description: "More than a company, a commitment to Senegalese excellence",
+      missionBadge: "OUR MISSION",
+      missionTitle: "Inspire the world with",
+      missionSubtitle: "the best of Senegal.",
+      missionDescription: "MPA GROUP is a Senegalese company specializing in the marketing and export of fruits to the international market. We position ourselves as a strategic lever for highlighting Senegalese terroir products.",
+      values: [
+        { title: 'Sustainable Agriculture', desc: 'Environmentally friendly methods.' },
+        { title: 'Social Impact', desc: 'Support for local rural communities.' },
+        { title: 'Logistics Innovation', desc: 'Cutting-edge technology for maximum freshness.' },
+      ],
+      ctaButton: "OUR VISION"
+    },
+    
+    // Process Section
+    process: {
+      step1Title: "Order & Quote",
+      step1Desc: "Receipt of your request, feasibility study and issuance of a detailed quote within 24h.",
+      step2Title: "Packaging",
+      step2Desc: "Rigorous selection of fruits and packaging to international standards (GlobalGAP).",
+      step3Title: "Logistics & Freight",
+      step3Desc: "Secure transport via controlled cold chain (Air or Sea) to your destination.",
+      step4Title: "Delivery & Quality",
+      step4Desc: "Handover of customs documents and final delivery with quality control on arrival.",
+      ctaButton: "PROCESS DETAILS"
+    },
+    
+    // Markets Section
+    markets: {
+      badge: "MARKET",
+      title: "Our",
+      subtitle: "Markets",
+      description: "A global network for exceptional tropical fruits from Senegal"
     },
     
     // Loading Screen
@@ -83,13 +144,10 @@ export const translations = {
     
     // Contact Form
     contact: {
-      title: "Contact Us",
-      subtitle: "Ready to collaborate? Our team is available for your export projects",
-      generalInfo: "General Information",
-      orderDetails: "Order Details", 
-      messageSend: "Message & Send",
-      success: "Request Sent!",
-      successMessage: "Thank you for your trust. An MPA GROUP advisor will contact you shortly to finalize your quote."
+      badge: "CONTACT",
+      title: "Contact",
+      subtitle: "Us",
+      description: "Ready to discover exceptional tropical fruits from Senegal? Contact us for a personalized consultation."
     }
   }
 };
