@@ -73,13 +73,14 @@ export const LoadingScreen = ({ onComplete }: { onComplete?: () => void }) => {
                 alt="MPA GROUP Logo"
                 className="w-full h-full object-contain"
                 animate={{ 
-                  scale: [1, 1.1, 1],
-                  rotate: [0, 5, -5, 0]
+                  scale: [1, 1.05, 1],
+                  rotate: [0, 2, -2, 0]
                 }}
                 transition={{
-                  duration: 4,
+                  duration: 6,
                   repeat: Infinity,
-                  ease: "easeInOut"
+                  ease: [0.4, 0, 0.2, 1],
+                  times: [0, 0.5, 1]
                 }}
               />
             </div>
@@ -87,7 +88,11 @@ export const LoadingScreen = ({ onComplete }: { onComplete?: () => void }) => {
             {/* Animated dots around logo */}
             <motion.div
               animate={{ rotate: 360 }}
-              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              transition={{ 
+                duration: 25, 
+                repeat: Infinity, 
+                ease: [0.4, 0, 0.2, 1]
+              }}
               className="absolute inset-0"
             >
               {[0, 120, 240].map((rotation, i) => (
@@ -106,13 +111,14 @@ export const LoadingScreen = ({ onComplete }: { onComplete?: () => void }) => {
             {/* Bouncing dot */}
             <motion.div
               animate={{ 
-                y: [0, -15, 0],
-                scale: [1, 1.2, 1]
+                y: [0, -12, 0],
+                scale: [1, 1.15, 1]
               }}
               transition={{
-                duration: 1.5,
+                duration: 2,
                 repeat: Infinity,
-                ease: "easeInOut"
+                ease: [0.4, 0, 0.6, 1],
+                times: [0, 0.5, 1]
               }}
               className="absolute -bottom-3 -right-3 w-10 h-10 bg-white rounded-full border-4 border-primary shadow-lg flex items-center justify-center"
             >
@@ -128,13 +134,14 @@ export const LoadingScreen = ({ onComplete }: { onComplete?: () => void }) => {
           >
             <motion.span
               animate={{ 
-                letterSpacing: ["0.5em", "0.6em", "0.5em"],
-                opacity: [0.8, 1, 0.8]
+                letterSpacing: ["0.5em", "0.55em", "0.5em"],
+                opacity: [0.85, 1, 0.85]
               }}
               transition={{
-                duration: 3,
+                duration: 4,
                 repeat: Infinity,
-                ease: "easeInOut"
+                ease: [0.4, 0, 0.6, 1],
+                times: [0, 0.5, 1]
               }}
               className="text-white font-black tracking-[0.5em] uppercase text-sm mb-6 drop-shadow-lg"
             >
@@ -149,8 +156,8 @@ export const LoadingScreen = ({ onComplete }: { onComplete?: () => void }) => {
                 animate={{ x: '100%' }}
                 transition={{ 
                   repeat: Infinity, 
-                  duration: 2, 
-                  ease: "easeInOut"
+                  duration: 3, 
+                  ease: [0.4, 0, 0.6, 1]
                 }}
                 className="relative h-full"
               >
@@ -161,8 +168,13 @@ export const LoadingScreen = ({ onComplete }: { onComplete?: () => void }) => {
             
             {/* Loading percentage */}
             <motion.div
-              animate={{ opacity: [0.5, 1, 0.5] }}
-              transition={{ duration: 2, repeat: Infinity }}
+              animate={{ opacity: [0.6, 1, 0.6] }}
+              transition={{ 
+                duration: 2.5, 
+                repeat: Infinity,
+                ease: [0.4, 0, 0.6, 1],
+                times: [0, 0.5, 1]
+              }}
               className="mt-4 text-white/60 text-xs font-medium"
             >
               {t.loading.charging}
