@@ -64,7 +64,7 @@ export const LoadingScreen = ({ onComplete }: { onComplete?: () => void }) => {
             className="relative z-10"
           >
             {/* Glow effect behind logo */}
-            <div className="absolute inset-0 bg-orange-500/20 rounded-3xl blur-2xl scale-150 animate-pulse" />
+            <div className="absolute inset-0 bg-[#4a5d23]/20 rounded-3xl blur-2xl scale-150 animate-pulse" />
             
             {/* Main logo container */}
             <div className="relative w-96 h-96 flex items-center justify-center">
@@ -122,7 +122,7 @@ export const LoadingScreen = ({ onComplete }: { onComplete?: () => void }) => {
               }}
               className="absolute -bottom-3 -right-3 w-10 h-10 bg-white rounded-full border-4 border-primary shadow-lg flex items-center justify-center"
             >
-              <div className="w-2 h-2 bg-orange-500 rounded-full animate-ping" />
+              <div className="w-2 h-2 bg-[#b45309] rounded-full animate-ping" />
             </motion.div>
           </motion.div>
 
@@ -161,7 +161,7 @@ export const LoadingScreen = ({ onComplete }: { onComplete?: () => void }) => {
                 }}
                 className="relative h-full"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-orange-400 via-orange-500 to-orange-400" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#4a5d23] via-[#b45309] to-[#1e3a5f]" />
                 <div className="absolute inset-0 bg-white/30 blur-sm" />
               </motion.div>
             </div>
