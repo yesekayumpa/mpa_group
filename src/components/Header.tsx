@@ -96,13 +96,13 @@ export const Header = () => {
 
       <nav className="max-w-7xl mx-auto px-6 lg:px-12 py-4">
         <div className="flex justify-between items-center">
-          <Link to="/" className="flex items-center gap-3 group hover:opacity-80 transition-opacity">
-            <div className="w-9 h-9 bg-primary rounded-lg flex items-center justify-center shadow-lg shadow-primary/20 group-hover:shadow-primary/30 transition-shadow">
-              <Leaf className="text-white w-5 h-5" />
-            </div>
-            <div className="flex flex-col leading-none">
-              <span className="text-lg font-display font-extrabold text-primary tracking-tighter group-hover:text-primary/80 transition-colors">MPA GROUP</span>
-              <span className="text-[9px] font-bold text-slate-400 tracking-[0.2em] uppercase">Export Excellence</span>
+          <Link to="/" className="flex items-center group hover:opacity-80 transition-opacity">
+            <div className="relative -my-8">
+              <img 
+                src="/Logo MPA Group fond blanc-06.png" 
+                alt="MPA GROUP Logo" 
+                className="w-32 h-32 object-contain transition-transform group-hover:scale-105"
+              />
             </div>
           </Link>
 

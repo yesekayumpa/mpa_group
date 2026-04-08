@@ -11,12 +11,13 @@ export const Footer = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           <div className="space-y-6">
-            <div className="flex items-center gap-2">
-              <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center shadow-lg shadow-primary/10">
-                <MapPin className="text-white w-5 h-5" />
-              </div>
-              <div className="flex flex-col leading-none">
-                <span className="text-xl font-display font-extrabold text-white tracking-tighter">MPA GROUP</span>
+            <div className="flex items-center">
+              <div className="relative">
+                <img 
+                  src="/Logo MPA Group fond blanc-06.png" 
+                  alt="MPA GROUP Logo" 
+                  className="w-14 h-14 object-contain"
+                />
               </div>
             </div>
             <p className="text-slate-400 text-[11px] leading-relaxed max-w-xs">

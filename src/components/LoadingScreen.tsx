@@ -67,8 +67,11 @@ export const LoadingScreen = ({ onComplete }: { onComplete?: () => void }) => {
             <div className="absolute inset-0 bg-orange-500/20 rounded-3xl blur-2xl scale-150 animate-pulse" />
             
             {/* Main logo container */}
-            <div className="relative w-32 h-32 bg-gradient-to-br from-orange-400 to-orange-600 rounded-3xl flex items-center justify-center text-white font-black text-6xl shadow-2xl shadow-orange-500/50 backdrop-blur-sm border border-orange-400/20">
-              <motion.span
+            <div className="relative w-96 h-96 flex items-center justify-center">
+              <motion.img
+                src="/Logo MPA Blanc-04.png"
+                alt="MPA GROUP Logo"
+                className="w-full h-full object-contain"
                 animate={{ 
                   scale: [1, 1.1, 1],
                   rotate: [0, 5, -5, 0]
@@ -78,9 +81,7 @@ export const LoadingScreen = ({ onComplete }: { onComplete?: () => void }) => {
                   repeat: Infinity,
                   ease: "easeInOut"
                 }}
-              >
-                M
-              </motion.span>
+              />
             </div>
             
             {/* Animated dots around logo */}
@@ -168,52 +169,7 @@ export const LoadingScreen = ({ onComplete }: { onComplete?: () => void }) => {
             </motion.div>
           </motion.div>
 
-          {/* Welcome message with iridescent effect */}
-          <motion.div
-            initial={{ y: 60, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.8, duration: 1 }}
-            className="absolute bottom-12 left-0 right-0 flex justify-center z-10"
-          >
-            <motion.div
-              animate={{
-                backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-              }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: "linear"
-              }}
-              className="relative px-8 py-3 rounded-full"
-              style={{
-                background: "linear-gradient(90deg, #f97316, #fbbf24, #10b981, #3b82f6, #8b5cf6, #f97316)",
-                backgroundSize: "200% 100%",
-              }}
-            >
-              <div className="absolute inset-0 bg-black/20 rounded-full backdrop-blur-sm" />
-              <motion.span
-                animate={{
-                  textShadow: [
-                    "0 0 10px rgba(249, 115, 22, 0.8)",
-                    "0 0 20px rgba(251, 191, 36, 0.8)",
-                    "0 0 15px rgba(16, 185, 129, 0.8)",
-                    "0 0 25px rgba(59, 130, 246, 0.8)",
-                    "0 0 18px rgba(139, 92, 246, 0.8)",
-                    "0 0 10px rgba(249, 115, 22, 0.8)"
-                  ]
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "linear"
-                }}
-                className="relative text-white font-bold text-sm tracking-widest uppercase"
-              >
-                {t.loading.welcome}
-              </motion.span>
-            </motion.div>
-          </motion.div>
-        </motion.div>
+                  </motion.div>
       )}
     </AnimatePresence>
   );
