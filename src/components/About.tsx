@@ -27,9 +27,9 @@ export const About = () => {
         </p>
       </div>
 
-      <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
         <div className="relative">
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-2 gap-2 md:gap-3">
             <motion.div 
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -37,14 +37,13 @@ export const About = () => {
               className="space-y-3"
             >
               <img 
-                src="https://images.unsplash.com/photo-1592419044706-39796d40f98c?auto=format&fit=crop&q=80&w=400" 
-                alt="Agriculture" 
-                className="rounded-3xl w-full aspect-[3/4] object-cover shadow-lg"
-                referrerPolicy="no-referrer"
+                src="/team-mpa.png" 
+                alt="Team MPA" 
+                className="rounded-2xl md:rounded-3xl w-full aspect-[3/4] object-cover shadow-lg"
               />
-              <div className="bg-secondary p-6 rounded-3xl text-white text-center">
-                <p className="text-3xl font-display font-extrabold mb-1">15+</p>
-                <p className="text-[9px] font-bold uppercase tracking-widest opacity-80">Années d'Expérience</p>
+              <div className="bg-secondary p-4 md:p-6 rounded-2xl md:rounded-3xl text-white text-center">
+                <p className="text-2xl md:text-3xl font-display font-extrabold mb-1">15+</p>
+                <p className="text-[8px] md:text-[9px] font-bold uppercase tracking-widest opacity-80">Années d'Expérience</p>
               </div>
             </motion.div>
             <motion.div 
@@ -54,15 +53,14 @@ export const About = () => {
               transition={{ delay: 0.2 }}
               className="space-y-3 pt-10"
             >
-              <div className="bg-primary p-6 rounded-3xl text-white text-center">
-                <p className="text-3xl font-display font-extrabold mb-1">500+</p>
-                <p className="text-[9px] font-bold uppercase tracking-widest opacity-80">Partenaires</p>
+              <div className="bg-primary p-4 md:p-6 rounded-2xl md:rounded-3xl text-white text-center">
+                <p className="text-2xl md:text-3xl font-display font-extrabold mb-1">500+</p>
+                <p className="text-[8px] md:text-[9px] font-bold uppercase tracking-widest opacity-80">Partenaires</p>
               </div>
               <img 
-                src="https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&q=80&w=400" 
-                alt="Fruits" 
-                className="rounded-3xl w-full aspect-[3/4] object-cover shadow-lg"
-                referrerPolicy="no-referrer"
+                src="/mission-values.png" 
+                alt="Mission Values" 
+                className="rounded-2xl md:rounded-3xl w-full aspect-[3/4] object-cover shadow-lg"
               />
             </motion.div>
           </div>

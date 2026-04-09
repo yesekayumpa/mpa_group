@@ -97,39 +97,40 @@ export const Header = () => {
       <nav className="max-w-7xl mx-auto px-6 lg:px-12 py-4">
         <div className="flex justify-between items-center">
           <Link to="/" className="flex items-center group hover:opacity-80 transition-opacity">
-            <div className="relative -my-8">
+            <div className="relative -my-4 md:-my-6">
               <img 
                 src="/Logo MPA Group fond blanc-06.png" 
                 alt="MPA GROUP Logo" 
-                className="w-32 h-32 object-contain transition-transform group-hover:scale-105"
+                className="w-16 h-16 md:w-24 md:h-24 object-contain transition-transform group-hover:scale-105"
               />
             </div>
           </Link>
 
-          <div className="hidden lg:flex items-center gap-8">
-            {getSections(t).map((item) => {
-              const sectionId = item.href.slice(1);
-              const isActive = activeSection === sectionId;
-              
-              return (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className={cn(
-                    "text-[12px] font-bold transition-colors relative group uppercase tracking-wider",
-                    isActive 
-                      ? "text-primary" 
-                      : "text-slate-600 hover:text-primary"
-                  )}
-                >
-                  {item.name}
-                  <span className={cn(
-                    "absolute -bottom-1 left-0 h-0.5 bg-primary transition-all",
-                    isActive ? "w-full" : "w-0 group-hover:w-full"
-                  )} />
-                </a>
-              );
-            })}
+          <div className="hidden lg:flex items-center">
+            <div className="flex items-center bg-white/80 backdrop-blur-md rounded-full shadow-lg border border-white/20 px-2 py-2">
+              {getSections(t).map((item) => {
+                const sectionId = item.href.slice(1);
+                const isActive = activeSection === sectionId;
+                
+                return (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    className={cn(
+                      "px-6 py-3 text-sm font-medium transition-all duration-300 rounded-full relative",
+                      isActive 
+                        ? "bg-gradient-to-r from-[#4a5d23] to-[#3a4a1a] text-white shadow-md" 
+                        : "text-slate-700 hover:text-[#4a5d23] hover:bg-[#4a5d23]/5"
+                    )}
+                  >
+                    {item.name}
+                    {isActive && (
+                      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#4a5d23]/20 to-[#3a4a1a]/20 animate-pulse" />
+                    )}
+                  </a>
+                );
+              })}
+            </div>
           </div>
 
           <button className="lg:hidden p-2 text-slate-600" onClick={() => setIsMenuOpen(!isMenuOpen)}>
@@ -142,30 +143,36 @@ export const Header = () => {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="lg:hidden absolute top-full left-0 right-0 bg-white border-b border-slate-200 shadow-2xl overflow-hidden"
+            initial={{ opacity: 0, y: -20, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -20, scale: 0.95 }}
+            transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+            className="lg:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-xl border border-white/20 shadow-2xl overflow-hidden"
           >
-            <div className="flex flex-col p-8 gap-6">
+            <div className="flex flex-col p-6 gap-2">
               {getSections(t).map((item) => {
                 const sectionId = item.href.slice(1);
                 const isActive = activeSection === sectionId;
                 
                 return (
-                  <a
+                  <motion.a
                     key={item.name}
                     href={item.href}
                     onClick={() => setIsMenuOpen(false)}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
                     className={cn(
-                      "text-sm font-bold transition-colors uppercase tracking-widest",
+                      "px-4 py-3 text-sm font-medium transition-all duration-300 rounded-xl relative",
                       isActive 
-                        ? "text-primary" 
-                        : "text-slate-600 hover:text-primary"
+                        ? "bg-gradient-to-r from-[#4a5d23] to-[#3a4a1a] text-white shadow-md" 
+                        : "text-slate-700 hover:text-[#4a5d23] hover:bg-[#4a5d23]/5"
                     )}
                   >
                     {item.name}
-                  </a>
+                    {isActive && (
+                      <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-[#4a5d23]/20 to-[#3a4a1a]/20 animate-pulse" />
+                    )}
+                  </motion.a>
                 );
               })}
             </div>

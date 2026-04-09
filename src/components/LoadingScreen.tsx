@@ -23,34 +23,61 @@ export const LoadingScreen = ({ onComplete }: { onComplete?: () => void }) => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.8, ease: "easeInOut" }}
-          className="fixed inset-0 z-[100] bg-gradient-to-br from-primary via-primary/95 to-secondary flex flex-col items-center justify-center overflow-hidden"
+          className="fixed inset-0 z-[100] flex flex-col items-center justify-center overflow-hidden"
         >
-          {/* Background animated particles */}
-          <div className="absolute inset-0">
-            {[...Array(20)].map((_, i) => (
-              <motion.div
-                key={i}
-                initial={{ 
-                  x: Math.random() * window.innerWidth,
-                  y: Math.random() * window.innerHeight,
-                  scale: 0
-                }}
-                animate={{
-                  x: Math.random() * window.innerWidth,
-                  y: Math.random() * window.innerHeight,
-                  scale: [0, 1, 0],
-                  opacity: [0, 0.6, 0]
-                }}
-                transition={{
-                  duration: 3 + Math.random() * 2,
-                  repeat: Infinity,
-                  delay: Math.random() * 2,
-                  ease: "easeInOut"
-                }}
-                className="absolute w-2 h-2 bg-orange-400/30 rounded-full blur-sm"
-              />
-            ))}
-          </div>
+          {/* Background alternance - Logo 1 avec fond d'avant */}
+          <motion.div
+            className="absolute inset-0 bg-gradient-to-br from-primary via-primary/95 to-secondary"
+            animate={{ 
+              opacity: [1, 0.8, 0.2, 0, 0, 0.2, 0.8, 1]
+            }}
+            transition={{
+              duration: 6,
+              repeat: Infinity,
+              ease: [0.4, 0, 0.2, 1],
+              times: [0, 0.4, 0.45, 0.5, 0.55, 0.6, 1]
+            }}
+          >
+            {/* Background animated particles */}
+            <div className="absolute inset-0">
+              {[...Array(20)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ 
+                    x: Math.random() * window.innerWidth,
+                    y: Math.random() * window.innerHeight,
+                    scale: 0
+                  }}
+                  animate={{
+                    x: Math.random() * window.innerWidth,
+                    y: Math.random() * window.innerHeight,
+                    scale: [0, 1, 0],
+                    opacity: [0, 0.6, 0]
+                  }}
+                  transition={{
+                    duration: Math.random() * 3 + 2,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                  className="absolute w-1 h-1 bg-white rounded-full"
+                />
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Background alternance - Logo 2 avec fond orange */}
+          <motion.div
+            className="absolute inset-0 bg-[#f7a512]"
+            animate={{ 
+              opacity: [0, 0.2, 0.8, 1, 0.8, 0.2, 0, 0]
+            }}
+            transition={{
+              duration: 6,
+              repeat: Infinity,
+              ease: [0.4, 0, 0.2, 1],
+              times: [0, 0.4, 0.45, 0.5, 0.55, 0.6, 1]
+            }}
+          />
 
           <motion.div
             initial={{ scale: 0.5, opacity: 0, rotate: -180 }}
@@ -66,48 +93,52 @@ export const LoadingScreen = ({ onComplete }: { onComplete?: () => void }) => {
             {/* Glow effect behind logo */}
             <div className="absolute inset-0 bg-[#4a5d23]/20 rounded-3xl blur-2xl scale-150 animate-pulse" />
             
-            {/* Main logo container */}
-            <div className="relative w-96 h-96 flex items-center justify-center">
-              <motion.img
-                src="/Logo MPA Blanc-04.png"
-                alt="MPA GROUP Logo"
-                className="w-full h-full object-contain"
+            {/* Main logos container */}
+            <div className="relative w-32 h-32 flex items-center justify-center">
+              {/* Logo alternance - Premier logo visible */}
+              <motion.div
+                className="absolute inset-0"
                 animate={{ 
-                  scale: [1, 1.05, 1],
-                  rotate: [0, 2, -2, 0]
+                  opacity: [1, 0.8, 0.2, 0, 0, 0.2, 0.8, 1],
+                  scale: [1, 1.05, 1]
                 }}
                 transition={{
                   duration: 6,
                   repeat: Infinity,
                   ease: [0.4, 0, 0.2, 1],
-                  times: [0, 0.5, 1]
+                  times: [0, 0.4, 0.45, 0.5, 0.55, 0.6, 1]
                 }}
-              />
+              >
+                <img
+                  src="/Logo MPA Blanc-04.png"
+                  alt="MPA GROUP Logo Blanc"
+                  className="w-full h-full object-contain"
+                />
+              </motion.div>
+              
+              {/* Logo alternance - Deuxième logo visible */}
+              <motion.div
+                className="absolute inset-0"
+                animate={{ 
+                  opacity: [0, 0, 0.2, 0.8, 1, 0.8, 0.2, 0],
+                  scale: [1, 1.05, 1]
+                }}
+                transition={{
+                  duration: 6,
+                  repeat: Infinity,
+                  ease: [0.4, 0, 0.2, 1],
+                  times: [0, 0.4, 0.45, 0.5, 0.55, 0.6, 1]
+                }}
+              >
+                <img
+                  src="/logo MPA.png"
+                  alt="MPA GROUP Logo"
+                  className="w-full h-full object-contain"
+                />
+              </motion.div>
             </div>
             
-            {/* Animated dots around logo */}
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ 
-                duration: 25, 
-                repeat: Infinity, 
-                ease: [0.4, 0, 0.2, 1]
-              }}
-              className="absolute inset-0"
-            >
-              {[0, 120, 240].map((rotation, i) => (
-                <div
-                  key={i}
-                  className="absolute w-3 h-3 bg-white rounded-full"
-                  style={{
-                    top: '50%',
-                    left: '50%',
-                    transform: `translate(-50%, -50%) rotate(${rotation}deg) translateY(-80px)`
-                  }}
-                />
-              ))}
-            </motion.div>
-            
+                        
             {/* Bouncing dot */}
             <motion.div
               animate={{ 
@@ -161,8 +192,8 @@ export const LoadingScreen = ({ onComplete }: { onComplete?: () => void }) => {
                 }}
                 className="relative h-full"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-[#4a5d23] via-[#b45309] to-[#1e3a5f]" />
-                <div className="absolute inset-0 bg-white/30 blur-sm" />
+                <div className="absolute inset-0 bg-white" />
+                <div className="absolute inset-0 bg-gradient-to-r from-white/50 via-white to-white/50 blur-sm" />
               </motion.div>
             </div>
             

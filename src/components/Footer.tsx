@@ -7,25 +7,25 @@ export const Footer = () => {
   const { language, setLanguage } = useLanguage();
   const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
   return (
-    <footer className="bg-slate-950 text-white pt-16 pb-8 rounded-t-5xl lg:rounded-t-[80px]">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+    <footer className="bg-slate-950 text-white pt-12 md:pt-16 pb-6 md:pb-8 rounded-t-3xl lg:rounded-t-[80px]">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-8 md:mb-12">
           <div className="space-y-6">
             <div className="flex items-center">
               <div className="relative">
                 <img 
-                  src="/Logo MPA Group fond blanc-06.png" 
+                  src="/Logo MPA Group fond blanc-07.png" 
                   alt="MPA GROUP Logo" 
-                  className="w-14 h-14 object-contain"
+                  className="w-16 h-16 md:w-24 md:h-24 object-contain"
                 />
               </div>
             </div>
-            <p className="text-slate-400 text-[11px] leading-relaxed max-w-xs">
+            <p className="text-slate-400 text-[10px] md:text-[11px] leading-relaxed max-w-xs">
               Leader sénégalais dans l'exportation de fruits tropicaux d'exception. Qualité premium, logistique mondiale et engagement durable.
             </p>
           </div>
 
-          <div>
+          <div className="hidden md:block">
             <h4 className="font-display font-bold text-sm mb-6 uppercase tracking-widest text-slate-200">Navigation</h4>
             <ul className="grid grid-cols-2 gap-3 text-slate-400 text-[11px]">
               {[
@@ -45,7 +45,7 @@ export const Footer = () => {
             </ul>
           </div>
 
-          <div>
+          <div className="hidden md:block">
             <h4 className="font-display font-bold text-sm mb-6 uppercase tracking-widest text-slate-200">Nos Produits</h4>
             <ul className="space-y-3 text-slate-400 text-[11px]">
               {['Mangue Kent', 'Papaye Solo', 'Melon Charentais', 'Pastèque sans pépins', 'Citron Vert'].map((item) => (
@@ -71,24 +71,25 @@ export const Footer = () => {
         </div>
         
         <div className="pt-8 border-t border-white/5">
-          <div className="max-w-7xl mx-auto flex justify-between items-center text-xs font-medium">
-            <div className="flex items-center gap-6">
+          <div className="max-w-7xl md:mx-auto flex flex-col md:flex-row justify-between items-start md:items-center text-xs font-medium gap-4 md:gap-0 px-4 md:px-0">
+            <div className="flex flex-col md:flex-row gap-4 md:gap-6">
               <div className="flex items-center gap-2">
-                <MapPin className="w-3.5 h-3.5 text-accent" />
-                <span>Médina rue 37x24, Dakar, Sénégal</span>
+                <MapPin className="w-3.5 h-3.5 text-accent flex-shrink-0" />
+                <span className="text-[10px] md:text-xs">Médina rue 37x24, Dakar, Sénégal</span>
               </div>
               <div className="flex items-center gap-2">
-                <Mail className="w-3.5 h-3.5 text-accent" />
-                <span>contact@mpa-group.sn</span>
+                <Mail className="w-3.5 h-3.5 text-accent flex-shrink-0" />
+                <span className="text-[10px] md:text-xs">contact@mpa-group.sn</span>
               </div>
               <div className="flex items-center gap-2">
-                <Phone className="w-3.5 h-3.5 text-accent" />
-                <span>+221 33 829 58 06</span>
+                <Phone className="w-3.5 h-3.5 text-accent flex-shrink-0" />
+                <span className="text-[10px] md:text-xs">+221 33 829 58 06</span>
               </div>
             </div>
-            <div className="flex items-center gap-6">
+            
+            <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
               {/* Language Selector */}
-              <div className="relative">
+              <div className="relative hidden md:block">
                 <button 
                   onClick={(e) => {
                     e.stopPropagation();
@@ -140,10 +141,10 @@ export const Footer = () => {
                   )}
                 </AnimatePresence>
               </div>
-              
+
               {/* Social Media */}
               <div className="flex items-center gap-4">
-                <span className="text-white/60">Suivez-nous:</span>
+                <span className="text-white/60 text-[10px] md:text-xs">Suivez-nous:</span>
                 <div className="flex gap-3">
                   <Facebook className="w-3.5 h-3.5 hover:text-accent cursor-pointer transition-colors" />
                   <Twitter className="w-3.5 h-3.5 hover:text-accent cursor-pointer transition-colors" />

@@ -8,19 +8,19 @@ const SLIDES = [
     title: "Cultiver l'Excellence,",
     highlight: "Exporter la Fraîcheur.",
     desc: "Nous connectons les meilleurs terroirs du Sénégal aux marchés mondiaux. Une qualité premium, une logistique maîtrisée.",
-    image: "https://images.unsplash.com/photo-1557800636-894a64c1696f?auto=format&fit=crop&q=80&w=1000"
+    image: "/hero-slide-1.png"
   },
   {
     title: "Le Goût Authentique,",
     highlight: "Du Sénégal au Monde.",
     desc: "Mangues Kent, Papayes Solo et Melons Charentais sélectionnés avec soin pour les palais les plus exigeants.",
-    image: "https://images.unsplash.com/photo-1610832958506-aa56368176cf?auto=format&fit=crop&q=80&w=1000"
+    image: "/hero-slide-2.png"
   },
   {
     title: "Logistique de Pointe,",
     highlight: "Fraîcheur Garantie.",
     desc: "Une chaîne de froid ininterrompue et une expertise douanière pour une livraison rapide sur trois continents.",
-    image: "https://images.unsplash.com/photo-1592419044706-39796d40f98c?auto=format&fit=crop&q=80&w=1000"
+    image: "/hero-slide-3.png"
   }
 ];
 
@@ -141,7 +141,7 @@ export const Hero = () => {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-4 gap-4 relative z-30">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 relative z-30">
             {[
               { icon: <Globe />, title: 'Export Mondial', desc: 'Présence sur 3 continents.', color: 'bg-emerald-600' },
               { icon: <Truck />, title: 'Logistique Rapide', desc: 'Chaîne de froid optimale.', color: 'bg-orange-600' },
@@ -153,13 +153,13 @@ export const Hero = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 + (i * 0.1) }}
-                className="bg-white p-6 rounded-3xl shadow-lg shadow-slate-200/40 border border-slate-50 hover:-translate-y-1 transition-transform duration-300"
+                className="bg-white p-4 md:p-6 rounded-2xl md:rounded-3xl shadow-lg shadow-slate-200/40 border border-slate-50 hover:-translate-y-1 transition-transform duration-300"
               >
-                <div className={cn("w-10 h-10 rounded-xl flex items-center justify-center text-white mb-4 shadow-md", item.color)}>
-                  {React.cloneElement(item.icon as React.ReactElement, { className: "w-5 h-5" })}
+                <div className={cn("w-8 h-8 md:w-10 md:h-10 rounded-xl flex items-center justify-center text-white mb-3 md:mb-4 shadow-md", item.color)}>
+                  {React.cloneElement(item.icon as React.ReactElement, { className: "w-4 h-4 md:w-5 md:h-5" })}
                 </div>
-                <h3 className="text-sm font-display font-bold text-slate-900 mb-1">{item.title}</h3>
-                <p className="text-[11px] text-slate-500 leading-relaxed">{item.desc}</p>
+                <h3 className="text-xs md:text-sm font-display font-bold text-slate-900 mb-1">{item.title}</h3>
+                <p className="text-[10px] md:text-[11px] text-slate-500 leading-relaxed">{item.desc}</p>
               </motion.div>
             ))}
           </div>
