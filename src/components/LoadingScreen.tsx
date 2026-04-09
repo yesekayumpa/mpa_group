@@ -2,6 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useLanguage } from '../contexts/LanguageContext';
 
+/**
+ * Écran de chargement animé avec logos alternés et particules
+ * @param onComplete - Fonction callback appelée à la fin du chargement (optionnel)
+ * @returns Écran de chargement plein écran avec animations complexes
+ */
 export const LoadingScreen = ({ onComplete }: { onComplete?: () => void }) => {
   const { t } = useLanguage();
   const [isLoading, setIsLoading] = useState(true);

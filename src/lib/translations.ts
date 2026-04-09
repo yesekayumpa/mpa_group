@@ -1,3 +1,7 @@
+/**
+ * Configuration des traductions pour l'application multilingue
+ * Contient toutes les chaînes de traduction en français et anglais
+ */
 export const translations = {
   fr: {
     // Navigation

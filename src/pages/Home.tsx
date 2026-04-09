@@ -3,6 +3,10 @@ import { motion } from 'motion/react';
 import { ArrowRight, CheckCircle2, Globe, ShieldCheck, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+/**
+ * Page d'accueil principale avec hero, features et sections de services
+ * @returns Page d'accueil complète avec toutes les sections marketing
+ */
 const Home: React.FC = () => {
   return (
     <div className="overflow-hidden">

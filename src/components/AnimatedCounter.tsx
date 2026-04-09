@@ -9,6 +9,15 @@ interface AnimatedCounterProps {
   className?: string;
 }
 
+/**
+ * Composant d'animation de compteur qui compte de 0 à une valeur cible
+ * @param end - Valeur finale à atteindre
+ * @param suffix - Texte à afficher après le nombre (optionnel)
+ * @param prefix - Texte à afficher avant le nombre (optionnel)
+ * @param duration - Durée de l'animation en millisecondes (défaut: 2000)
+ * @param className - Classes CSS additionnelles (optionnel)
+ * @returns Composant React animé
+ */
 export const AnimatedCounter: React.FC<AnimatedCounterProps> = ({ 
   end, 
   suffix = '', 
@@ -80,6 +89,11 @@ interface StatsSectionProps {
   }>;
 }
 
+/**
+ * Section affichant une grille de statistiques avec compteurs animés
+ * @param stats - Tableau d'objets statistiques contenant valeur, libellé, et options de formatage
+ * @returns Grille de composants statistiques animés
+ */
 export const StatsSection: React.FC<StatsSectionProps> = ({ stats }) => {
   return (
     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">

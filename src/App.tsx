@@ -19,7 +19,6 @@ import { Gallery } from './components/Gallery';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { LoadingScreen } from './components/LoadingScreen';
-import { MessageCircle } from 'lucide-react';
 
 // Import Pages
 import { AboutPage } from './pages/AboutPage';
@@ -30,6 +29,10 @@ import { MarketsPage } from './pages/MarketsPage';
 import { GalleryPage } from './pages/GalleryPage';
 import { ContactPage } from './pages/ContactPage';
 
+/**
+ * Composant HomePage regroupant toutes les sections de la page d'accueil
+ * @returns Ensemble des composants de la page d'accueil dans un main
+ */
 const HomePage = () => (
   <main>
     <Hero />
@@ -44,6 +47,10 @@ const HomePage = () => (
   </main>
 );
 
+/**
+ * Composant principal de l'application avec routing et loading screen
+ * @returns Application React complète avec gestion des routes et animations
+ */
 export default function App() {
   const { scrollYProgress } = useScroll();
   const location = useLocation();
@@ -98,22 +105,6 @@ export default function App() {
       </Routes>
 
       <Footer />
-
-      {/* WhatsApp Widget */}
-      <a 
-        href="https://wa.me/221338295806" 
-        target="_blank" 
-        rel="noopener noreferrer"
-        className="fixed bottom-8 right-8 z-[100] bg-[#25D366] text-white p-5 rounded-full shadow-2xl hover:scale-110 transition-transform flex items-center justify-center group"
-      >
-        <MessageCircle className="w-8 h-8" />
-        <span className="absolute -top-2 -right-2 w-6 h-6 bg-red-500 rounded-full border-2 border-white animate-pulse" />
-        
-        {/* Tooltip */}
-        <div className="absolute right-full mr-4 bg-white text-slate-900 px-4 py-2 rounded-xl text-sm font-bold shadow-xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none border border-slate-100">
-          Besoin d'aide ? Discutons !
-        </div>
-      </a>
       </div>
     </LanguageProvider>
   );

@@ -2,6 +2,10 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { Users, Target, Award, TrendingUp } from 'lucide-react';
 
+/**
+ * Page À propos présentant l'histoire et les valeurs de MPA GROUP
+ * @returns Page complète avec histoire, valeurs et statistiques de l'entreprise
+ */
 const About: React.FC = () => {
   return (
     <div className="pt-32 pb-24">

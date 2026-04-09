@@ -3,6 +3,11 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 import {defineConfig, loadEnv} from 'vite';
 
+/**
+ * Configuration Vite pour l'application React avec Tailwind CSS
+ * @param mode - Mode d'exécution (development/production)
+ * @returns Objet de configuration Vite
+ */
 export default defineConfig(({mode}) => {
   const env = loadEnv(mode, '.', '');
   return {

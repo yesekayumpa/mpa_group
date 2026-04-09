@@ -9,6 +9,11 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
+/**
+ * Hook personnalisé pour accéder au contexte de langue
+ * @returns Objet contenant la langue actuelle, la fonction pour la changer et les traductions
+ * @throws Erreur si utilisé hors du LanguageProvider
+ */
 export const useLanguage = () => {
   const context = useContext(LanguageContext);
   if (!context) {
@@ -21,6 +26,11 @@ interface LanguageProviderProps {
   children: ReactNode;
 }
 
+/**
+ * Composant fournisseur pour le contexte de langue
+ * @param children - Composants enfants qui auront accès au contexte
+ * @returns Provider React avec les valeurs de langue
+ */
 export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) => {
   const [language, setLanguage] = useState<Language>('fr');
 

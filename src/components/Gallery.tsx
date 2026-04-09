@@ -2,8 +2,32 @@ import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Maximize2, X, ChevronLeft, ChevronRight, Camera, Filter } from 'lucide-react';
 import { cn } from '../lib/utils';
+import { TrueFocus } from './TrueFocus';
+import { BorderGlow } from './BorderGlow';
+import { CircularTestimonials } from './ui/circular-testimonials';
 
 const CATEGORIES = ['Tous', 'Plantation', 'Récolte', 'Entrepôt', 'Qualité', 'Logistique', 'Export'];
+
+const TESTIMONIALS = [
+  {
+    quote: "La qualité des fruits MPA GROUP est exceptionnelle ! Chaque mangue arrive parfaitement mûre avec un arôme incroyable. Nos clients en raffolent.",
+    name: "Marie Dubois",
+    designation: "Importateur Premium, France",
+    src: "https://images.unsplash.com/photo-1512316609839-ce289d3eba0a?q=80&w=1368&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    quote: "MPA GROUP a transformé notre chaîne d'approvisionnement. Fiabilité, traçabilité et qualité constante à chaque livraison.",
+    name: "Jean-Pierre Martin",
+    designation: "Directeur Achats, Suisse",
+    src: "https://images.unsplash.com/photo-1628749528992-f5702133b686?q=80&w=1368&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fA%3D%3D",
+  },
+  {
+    quote: "Le service client MPA GROUP est exceptionnel. Ils comprennent nos besoins et livrent toujours dans les délais impartis.",
+    name: "Fatou Ndiaye",
+    designation: "Distributeur International, Espagne",
+    src: "https://images.unsplash.com/photo-1524267213992-b76e8577d046?q=80&w=1368&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fA%3D%3D",
+  },
+];
 
 const IMAGES = [
   { id: 1, src: 'https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&q=80&w=1200', title: 'Plantations de Mangues', category: 'Plantation' },
@@ -67,7 +91,14 @@ export const Gallery = () => {
             GALERIE
           </motion.div>
           <h2 className="text-4xl lg:text-6xl font-display font-extrabold text-white mb-6 leading-tight">
-            Notre <span className="text-accent">Galerie</span>
+            <TrueFocus 
+              sentence="Découvrez Notre Histoire"
+              manualMode={false}
+              blurAmount={5}
+              borderColor="#5227FF"
+              animationDuration={0.5}
+              pauseBetweenAnimations={1}
+            />
           </h2>
           <p className="text-slate-400 text-lg max-w-3xl mx-auto">
             Une immersion visuelle dans nos plantations, processus et installations d'exception
@@ -195,6 +226,48 @@ export const Gallery = () => {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Testimonials Section */}
+      <div className="mt-20">
+        <div className="bg-gradient-to-br from-slate-900/50 to-emerald-900/20 backdrop-blur-xl p-8 lg:p-12 rounded-2xl border border-white/10">
+          <div className="text-center mb-8">
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="inline-flex items-center gap-2 px-3 py-1.5 bg-emerald-500/10 border border-emerald-500/20 rounded-full mb-3"
+            >
+              <span className="text-emerald-400 font-semibold text-xs tracking-wider uppercase">TÉMOIGNAGES</span>
+            </motion.div>
+            <h3 className="text-2xl lg:text-3xl font-display font-bold text-white mb-3">
+              Ce Que Disent <span className="text-emerald-400">Nos Clients</span>
+            </h3>
+            <p className="text-slate-300 text-sm lg:text-base max-w-xl mx-auto">
+              Découvrez les expériences de nos partenaires internationaux qui font confiance à MPA GROUP
+            </p>
+          </div>
+          
+          <div className="flex justify-center">
+            <CircularTestimonials
+              testimonials={TESTIMONIALS}
+              autoplay={true}
+              colors={{
+                name: "#10b981",
+                designation: "#34d399",
+                testimony: "#f1f5f9",
+                arrowBackground: "#10b981",
+                arrowForeground: "#ffffff",
+                arrowHoverBackground: "#f59e0b",
+              }}
+              fontSizes={{
+                name: "18px",
+                designation: "14px",
+                quote: "14px",
+              }}
+            />
+          </div>
+        </div>
+      </div>
     </section>
   );
 };

@@ -13,6 +13,10 @@ const navLinks = [
   { name: 'Contact', path: '/contact' },
 ];
 
+/**
+ * Barre de navigation responsive avec effet de scroll et menu mobile
+ * @returns Barre de navigation fixe avec animations et menu hamburger
+ */
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);

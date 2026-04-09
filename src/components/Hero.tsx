@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowRight, Play, CheckCircle2, Shield, Globe, Truck, ChevronLeft, ChevronRight } from 'lucide-react';
 import { cn } from '../lib/utils';
+import { BorderGlow } from './BorderGlow';
 
 const SLIDES = [
   {
@@ -24,6 +25,10 @@ const SLIDES = [
   }
 ];
 
+/**
+ * Composant Hero avec carrousel animé présentant les messages principaux de l'entreprise
+ * @returns Section hero avec diaporma automatique et contrôles interactifs
+ */
 export const Hero = () => {
   const [current, setCurrent] = useState(0);
 
@@ -109,17 +114,31 @@ export const Hero = () => {
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.8, duration: 0.4 }}
-              className="absolute -bottom-6 -left-6 z-20 bg-white/90 backdrop-blur-md p-5 rounded-3xl max-w-[200px] hidden md:block shadow-xl border border-slate-100"
+              className="absolute -bottom-6 -left-6 z-20 hidden md:block"
             >
-              <div className="flex items-center gap-2 mb-2">
-                <div className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center">
-                  <Shield className="text-white w-4 h-4" />
+              <BorderGlow
+                edgeSensitivity={30}
+                glowColor="28 154 58"
+                backgroundColor="rgba(255, 255, 255, 0.9)"
+                borderRadius={24}
+                glowRadius={40}
+                glowIntensity={1}
+                coneSpread={25}
+                animated={true}
+                colors={['#1c9a3a', '#71b62b', '#f7a512']}
+              >
+                <div style={{ padding: '1.25rem' }} className="max-w-[200px] backdrop-blur-md shadow-xl border border-slate-100">
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center">
+                      <Shield className="text-white w-4 h-4" />
+                    </div>
+                    <span className="font-display font-bold text-slate-900 text-xs">100% Certifié</span>
+                  </div>
+                  <p className="text-[10px] text-slate-500 leading-relaxed">
+                    Nos produits respectent les normes GlobalGAP et les standards de qualité internationaux.
+                  </p>
                 </div>
-                <span className="font-display font-bold text-slate-900 text-xs">100% Certifié</span>
-              </div>
-              <p className="text-[10px] text-slate-500 leading-relaxed">
-                Nos produits respectent les normes GlobalGAP et les standards de qualité internationaux.
-              </p>
+              </BorderGlow>
             </motion.div>
           </motion.div>
         </div>

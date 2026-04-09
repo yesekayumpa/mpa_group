@@ -2,6 +2,10 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { MessageCircle } from 'lucide-react';
 
+/**
+ * Bouton flottant WhatsApp avec animation et tooltip
+ * @returns Bouton fixe en bas à droite qui ouvre WhatsApp
+ */
 export const WhatsAppButton = () => {
   return (
     <motion.a

@@ -1,3 +1,7 @@
+/**
+ * Point d'entrée principal de l'application React
+ * Monte l'application dans le DOM avec le routing et le mode strict
+ */
 import {StrictMode} from 'react';
 import {createRoot} from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
