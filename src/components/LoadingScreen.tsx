@@ -15,7 +15,7 @@ export const LoadingScreen = ({ onComplete }: { onComplete?: () => void }) => {
     const timer = setTimeout(() => {
       setIsLoading(false);
       onComplete?.();
-    }, 6000);
+    }, 2500); // Reduced from 6s to 2.5s
     return () => clearTimeout(timer);
   }, [onComplete]);
 
@@ -27,91 +27,55 @@ export const LoadingScreen = ({ onComplete }: { onComplete?: () => void }) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.8, ease: "easeInOut" }}
-          className="fixed inset-0 z-[100] flex flex-col items-center justify-center overflow-hidden"
+          transition={{ duration: 0.5, ease: "easeInOut" }}
+          className="fixed inset-0 z-[100] flex flex-col items-center justify-center overflow-hidden bg-[#1c9a3a]"
         >
-          {/* Background alternance - Logo 1 avec fond d'avant */}
-          <motion.div
-            className="absolute inset-0 bg-gradient-to-br from-primary via-primary/95 to-secondary"
-            animate={{ 
-              opacity: [1, 0.8, 0.2, 0, 0, 0.2, 0.8, 1]
-            }}
-            transition={{
-              duration: 6,
-              repeat: Infinity,
-              ease: [0.4, 0, 0.2, 1],
-              times: [0, 0.4, 0.45, 0.5, 0.55, 0.6, 1]
-            }}
-          >
-            {/* Background animated particles */}
-            <div className="absolute inset-0">
-              {[...Array(20)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ 
-                    x: Math.random() * window.innerWidth,
-                    y: Math.random() * window.innerHeight,
-                    scale: 0
-                  }}
-                  animate={{
-                    x: Math.random() * window.innerWidth,
-                    y: Math.random() * window.innerHeight,
-                    scale: [0, 1, 0],
-                    opacity: [0, 0.6, 0]
-                  }}
-                  transition={{
-                    duration: Math.random() * 3 + 2,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
-                  className="absolute w-1 h-1 bg-white rounded-full"
-                />
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Background alternance - Logo 2 avec fond orange */}
-          <motion.div
-            className="absolute inset-0 bg-[#f7a512]"
-            animate={{ 
-              opacity: [0, 0.2, 0.8, 1, 0.8, 0.2, 0, 0]
-            }}
-            transition={{
-              duration: 6,
-              repeat: Infinity,
-              ease: [0.4, 0, 0.2, 1],
-              times: [0, 0.4, 0.45, 0.5, 0.55, 0.6, 1]
-            }}
-          />
+          {/* Background Particles - snappier */}
+          <div className="absolute inset-0">
+            {[...Array(15)].map((_, i) => (
+              <motion.div
+                key={i}
+                initial={{ 
+                  x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1000),
+                  y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 1000),
+                  scale: 0
+                }}
+                animate={{
+                  scale: [0, 1, 0],
+                  opacity: [0, 0.4, 0]
+                }}
+                transition={{
+                  duration: Math.random() * 2 + 1,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+                className="absolute w-1 h-1 bg-white rounded-full"
+              />
+            ))}
+          </div>
 
           <motion.div
-            initial={{ scale: 0.5, opacity: 0, rotate: -180 }}
-            animate={{ scale: 1, opacity: 1, rotate: 0 }}
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
             transition={{ 
-              duration: 1.2, 
-              ease: "easeOut",
-              type: "spring",
-              stiffness: 100
+              duration: 0.6, 
+              ease: "easeOut"
             }}
             className="relative z-10"
           >
-            {/* Glow effect behind logo */}
-            <div className="absolute inset-0 bg-[#4a5d23]/20 rounded-3xl blur-2xl scale-150 animate-pulse" />
+            {/* Glow effect */}
+            <div className="absolute inset-0 bg-primary/20 rounded-full blur-3xl scale-150 animate-pulse" />
             
-            {/* Main logos container */}
-            <div className="relative w-32 h-32 flex items-center justify-center">
-              {/* Logo alternance - Premier logo visible */}
+            {/* Logo container */}
+            <div className="relative w-28 h-28 flex items-center justify-center">
               <motion.div
-                className="absolute inset-0"
                 animate={{ 
-                  opacity: [1, 0.8, 0.2, 0, 0, 0.2, 0.8, 1],
                   scale: [1, 1.05, 1]
                 }}
                 transition={{
-                  duration: 6,
+                  duration: 2,
                   repeat: Infinity,
-                  ease: [0.4, 0, 0.2, 1],
-                  times: [0, 0.4, 0.45, 0.5, 0.55, 0.6, 1]
+                  ease: "easeInOut"
                 }}
               >
                 <img
@@ -120,104 +84,47 @@ export const LoadingScreen = ({ onComplete }: { onComplete?: () => void }) => {
                   className="w-full h-full object-contain"
                 />
               </motion.div>
-              
-              {/* Logo alternance - Deuxième logo visible */}
-              <motion.div
-                className="absolute inset-0"
-                animate={{ 
-                  opacity: [0, 0, 0.2, 0.8, 1, 0.8, 0.2, 0],
-                  scale: [1, 1.05, 1]
-                }}
-                transition={{
-                  duration: 6,
-                  repeat: Infinity,
-                  ease: [0.4, 0, 0.2, 1],
-                  times: [0, 0.4, 0.45, 0.5, 0.55, 0.6, 1]
-                }}
-              >
-                <img
-                  src="/logo MPA.png"
-                  alt="MPA GROUP Logo"
-                  className="w-full h-full object-contain"
-                />
-              </motion.div>
             </div>
-            
-                        
-            {/* Bouncing dot */}
-            <motion.div
+          </motion.div>
+
+          <motion.div
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.3, duration: 0.5 }}
+            className="relative z-10 mt-8 flex flex-col items-center"
+          >
+            <motion.span
               animate={{ 
-                y: [0, -12, 0],
-                scale: [1, 1.15, 1]
+                opacity: [0.7, 1, 0.7]
               }}
               transition={{
                 duration: 2,
                 repeat: Infinity,
-                ease: [0.4, 0, 0.6, 1],
-                times: [0, 0.5, 1]
+                ease: "easeInOut"
               }}
-              className="absolute -bottom-3 -right-3 w-10 h-10 bg-white rounded-full border-4 border-primary shadow-lg flex items-center justify-center"
-            >
-              <div className="w-2 h-2 bg-[#b45309] rounded-full animate-ping" />
-            </motion.div>
-          </motion.div>
-
-          <motion.div
-            initial={{ y: 40, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
-            className="relative z-10 mt-12 flex flex-col items-center"
-          >
-            <motion.span
-              animate={{ 
-                letterSpacing: ["0.5em", "0.55em", "0.5em"],
-                opacity: [0.85, 1, 0.85]
-              }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: [0.4, 0, 0.6, 1],
-                times: [0, 0.5, 1]
-              }}
-              className="text-white font-black tracking-[0.5em] uppercase text-sm mb-6 drop-shadow-lg"
+              className="text-white font-bold tracking-[0.4em] uppercase text-[10px] mb-4"
             >
               MPA GROUP
             </motion.span>
             
-            {/* Enhanced progress bar */}
-            <div className="relative w-64 h-1 bg-white/10 rounded-full overflow-hidden backdrop-blur-sm">
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent" />
+            {/* Progress bar */}
+            <div className="relative w-48 h-0.5 bg-white/10 rounded-full overflow-hidden">
               <motion.div
-                initial={{ x: '-100%' }}
-                animate={{ x: '100%' }}
+                initial={{ width: '0%' }}
+                animate={{ width: '100%' }}
                 transition={{ 
-                  repeat: Infinity, 
-                  duration: 3, 
-                  ease: [0.4, 0, 0.6, 1]
+                  duration: 2.2,
+                  ease: "linear"
                 }}
-                className="relative h-full"
-              >
-                <div className="absolute inset-0 bg-white" />
-                <div className="absolute inset-0 bg-gradient-to-r from-white/50 via-white to-white/50 blur-sm" />
-              </motion.div>
+                className="h-full bg-white shadow-[0_0_8px_rgba(255,255,255,0.5)]"
+              />
             </div>
             
-            {/* Loading percentage */}
-            <motion.div
-              animate={{ opacity: [0.6, 1, 0.6] }}
-              transition={{ 
-                duration: 2.5, 
-                repeat: Infinity,
-                ease: [0.4, 0, 0.6, 1],
-                times: [0, 0.5, 1]
-              }}
-              className="mt-4 text-white/60 text-xs font-medium"
-            >
+            <div className="mt-3 text-white/40 text-[9px] font-medium tracking-wide">
               {t.loading.charging}
-            </motion.div>
+            </div>
           </motion.div>
-
-                  </motion.div>
+        </motion.div>
       )}
     </AnimatePresence>
   );
