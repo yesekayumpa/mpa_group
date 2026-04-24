@@ -1,15 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap");
 @import "tailwindcss";
 
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Outfit", sans-serif;
-  
+
   --color-primary: #1c9a3a; /* Vert forêt/sauge */
   --color-secondary: #71b62b;
   --color-accent: #f7a512; /* Orange brunâtre */
   --color-blue: #1e3a5f; /* Bleu marine */
-  
+
   --radius-4xl: 2rem;
   --radius-5xl: 3rem;
 }
@@ -19,13 +19,45 @@
     scroll-behavior: smooth;
     font-size: 14px; /* Even smaller base font for a more compact, professional look */
   }
-  
+
   body {
     @apply text-slate-900 antialiased bg-white selection:bg-primary/10 selection:text-primary;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-display tracking-tight;
+  }
+}
+
+@layer utilities {
+  .animate-gradient-shift {
+    background-position: 0% 50%;
+    animation: gradient-shift 3s ease infinite;
+  }
+
+  @keyframes gradient-shift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .delay-1000 {
+    animation-delay: 1000ms;
+  }
+
+  .delay-500 {
+    animation-delay: 500ms;
   }
 }
 
@@ -139,7 +171,8 @@
 
 /* Animations */
 @keyframes pulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
   }
   50% {
@@ -148,7 +181,8 @@
 }
 
 @keyframes bounce {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {

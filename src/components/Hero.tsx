@@ -160,7 +160,7 @@ export const Hero = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 relative z-30">
+          <div className="grid grid-cols-2 md:grid-cols-2 gap-3 md:gap-4 relative z-30">
             {[
               { icon: <Globe />, title: 'Export Mondial', desc: 'Présence sur 3 continents.', color: 'bg-emerald-600' },
               { icon: <Truck />, title: 'Logistique Rapide', desc: 'Chaîne de froid optimale.', color: 'bg-orange-600' },

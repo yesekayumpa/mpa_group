@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Calendar, ArrowUpRight } from 'lucide-react';
+import { Calendar, ArrowUpRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { cn } from '../lib/utils';
 
 const PRODUCTS = [
@@ -11,100 +11,184 @@ const PRODUCTS = [
   { id: '5', name: 'Mangue Keitt', category: 'Mangues', image: 'https://images.unsplash.com/photo-1591073113125-e46713c829ed?auto=format&fit=crop&q=80&w=800', season: 'Juil - Sept' },
   { id: '6', name: 'Citron Vert', category: 'Agrumes', image: 'https://images.unsplash.com/photo-1590502593747-42a996133562?auto=format&fit=crop&q=80&w=800', season: 'Toute l\'année' },
 ];
-
 export const ProductGrid = () => {
   const [filter, setFilter] = useState('Tous');
+  const [currentIndex, setCurrentIndex] = useState(0);
   const categories = ['Tous', ...new Set(PRODUCTS.map(p => p.category))];
   const filtered = filter === 'Tous' ? PRODUCTS : PRODUCTS.filter(p => p.category === filter);
 
-  return (
-    <section id="produits" className="section-padding relative overflow-hidden bg-slate-50 rounded-5xl my-16">
-      {/* Background Image Overlay */}
-      <div className="absolute inset-0 z-0 opacity-5 pointer-events-none">
-        <img 
-          src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?auto=format&fit=crop&q=80&w=2000" 
-          alt="Fruits background"
-          className="w-full h-full object-cover"
-          referrerPolicy="no-referrer"
-        />
-      </div>
+  // Responsive items count
+  const [itemsToShow, setItemsToShow] = useState(3);
+  
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) setItemsToShow(1);
+      else if (window.innerWidth < 1024) setItemsToShow(2);
+      else setItemsToShow(3);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
-      <div className="relative z-10">
+  const maxIndex = Math.max(0, filtered.length - itemsToShow);
+
+  const nextSlide = useCallback(() => {
+    setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
+  }, [maxIndex]);
+
+  const prevSlide = useCallback(() => {
+    setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
+  }, [maxIndex]);
+
+  const [isPaused, setIsPaused] = useState(false);
+
+  useEffect(() => {
+    if (isPaused) return;
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 2000);
+    return () => clearInterval(interval);
+  }, [isPaused, nextSlide]);
+
+  useEffect(() => {
+    if (isPaused) return;
+    const interval = setInterval(() => {
+      setFilter(prev => {
+        const nextIdx = (categories.indexOf(prev) + 1) % categories.length;
+        return categories[nextIdx];
+      });
+    }, 7000);
+    return () => clearInterval(interval);
+  }, [isPaused, categories]);
+
+  useEffect(() => {
+    setCurrentIndex(0);
+  }, [filter]);
+
+  return (
+    <section 
+      id="produits" 
+      className="py-12 md:py-20 relative overflow-hidden bg-slate-50 rounded-[40px] my-10"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
+      {/* Background Decor */}
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 -z-10 rounded-l-[60px]" />
+      
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
         {/* Section Title */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-primary text-xs font-bold uppercase tracking-widest mb-4"
+            className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary/10 rounded-full text-primary text-[10px] font-bold uppercase tracking-widest mb-3"
           >
-            <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-            PRODUITS
+            <span className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse" />
+            NOS PRODUITS
           </motion.div>
-          <h2 className="text-4xl lg:text-6xl font-display font-extrabold text-black  mb-6 leading-tight">
-            Notre <span className="text-gradient">Catalogue</span>
+          <h2 className="text-3xl lg:text-5xl font-display font-extrabold text-slate-900 leading-tight">
+            Catalogue <span className="text-gradient">Premium</span>
           </h2>
-          <p className="text-slate-600 dark:text-slate-400 text-lg max-w-3xl mx-auto">
-            Des fruits tropicaux d'exception, cultivés avec passion et exportés avec soin
-          </p>
         </div>
 
-        <div className="text-center mb-12">
-          <div className="flex flex-wrap justify-center gap-2 mt-8">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setFilter(cat)}
+        {/* Filter Buttons */}
+        <div className="flex flex-wrap justify-center gap-2 mb-10">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setFilter(cat)}
+              className={cn(
+                "px-5 py-1.5 rounded-full text-[10px] font-bold transition-all duration-300 border uppercase tracking-wider",
+                filter === cat 
+                  ? "bg-primary border-primary text-white shadow-md shadow-primary/20" 
+                  : "bg-white border-slate-200 text-slate-500 hover:border-primary hover:text-primary"
+              )}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+
+        {/* Slider Track */}
+        <div className="relative overflow-hidden -mx-2 px-2">
+          <motion.div
+            animate={{ x: `-${currentIndex * (100 / itemsToShow)}%` }}
+            transition={{ type: "spring", stiffness: 400, damping: 30 }}
+            className="flex gap-6"
+          >
+            {filtered.map((product) => (
+              <div 
+                key={product.id} 
                 className={cn(
-                  "px-6 py-2 rounded-full text-[11px] font-bold transition-all duration-300 border",
-                  filter === cat 
-                    ? "bg-primary border-primary text-white shadow-md shadow-primary/10" 
-                    : "bg-white border-slate-200 text-slate-500 hover:border-primary hover:text-primary"
+                  "flex-shrink-0 transition-all duration-500",
+                  itemsToShow === 1 ? "w-full" : itemsToShow === 2 ? "w-[calc(50%-8px)]" : "w-[calc(33.333%-11px)]"
                 )}
               >
-                {cat}
-              </button>
+                <div className="group bg-white rounded-3xl overflow-hidden shadow-lg shadow-slate-200/40 border border-slate-100 hover:-translate-y-1.5 transition-all duration-500">
+                  <div className="relative h-56 overflow-hidden">
+                    <img 
+                      src={product.image} 
+                      alt={product.name}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    />
+                    <div className="absolute top-4 left-4 px-2 py-0.5 bg-white/90 backdrop-blur-md rounded-lg text-[8px] font-bold text-primary uppercase tracking-widest shadow-sm">
+                      {product.category}
+                    </div>
+                    <button className="absolute bottom-4 right-4 w-10 h-10 bg-accent rounded-xl flex items-center justify-center text-white opacity-0 translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 shadow-lg">
+                      <ArrowUpRight className="w-5 h-5" />
+                    </button>
+                  </div>
+                  <div className="p-6 text-center">
+                    <h3 className="text-xl font-display font-bold text-slate-900 mb-2">{product.name}</h3>
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-50 rounded-lg text-slate-400 text-[10px] font-medium">
+                      <Calendar className="w-3.5 h-3.5 text-primary" />
+                      Saison: {product.season}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+
+        {/* Navigation & Indicators Bottom Container */}
+        <div className="mt-10 flex flex-col gap-6">
+          {/* Navigation Buttons - Right Aligned */}
+          <div className="flex justify-end gap-3">
+            <button 
+              onClick={prevSlide}
+              className="w-11 h-11 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 shadow-sm"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+            <button 
+              onClick={nextSlide}
+              className="w-11 h-11 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 shadow-sm"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          </div>
+
+          {/* Indicators - Centered */}
+          <div className="flex justify-center gap-1.5">
+            {Array.from({ length: maxIndex + 1 }).map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setCurrentIndex(i)}
+                className={cn(
+                  "h-1 rounded-full transition-all duration-500",
+                  currentIndex === i ? "w-8 bg-primary" : "w-1.5 bg-slate-200"
+                )}
+              />
             ))}
           </div>
         </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <AnimatePresence mode="popLayout">
-            {filtered.map((product) => (
-              <motion.div
-                key={product.id}
-                layout
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                className="group relative bg-white rounded-4xl overflow-hidden shadow-lg shadow-slate-200/40 border border-slate-50"
-              >
-                <div className="relative h-64 overflow-hidden">
-                  <img 
-                    src={product.image} 
-                    alt={product.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                    referrerPolicy="no-referrer"
-                  />
-                  <div className="absolute top-4 left-4 px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-[9px] font-bold text-primary uppercase tracking-widest shadow-sm">
-                    {product.category}
-                  </div>
-                  <button className="absolute bottom-4 right-4 w-10 h-10 bg-accent rounded-full flex items-center justify-center text-white opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 shadow-md">
-                    <ArrowUpRight className="w-5 h-5" />
-                  </button>
-                </div>
-                <div className="p-6 text-center">
-                  <h3 className="text-xl font-display font-bold text-slate-900 mb-1.5">{product.name}</h3>
-                  <div className="flex items-center justify-center gap-2 text-slate-400 text-[11px] font-medium">
-                    <Calendar className="w-3.5 h-3.5 text-primary" />
-                    Saison: {product.season}
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </div>
       </div>
     </section>
+
+
+
   );
 };
