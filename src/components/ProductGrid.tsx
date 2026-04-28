@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Calendar, ArrowUpRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { cn } from '../lib/utils';
 
 const PRODUCTS = [
@@ -69,7 +70,7 @@ export const ProductGrid = () => {
   return (
     <section 
       id="produits" 
-      className="py-12 md:py-20 relative overflow-hidden bg-slate-50 rounded-[40px] my-10"
+      className="py-12 md:py-20 relative overflow-hidden bg-premium rounded-[40px] my-10"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -114,7 +115,7 @@ export const ProductGrid = () => {
         {/* Slider Track */}
         <div className="relative overflow-hidden -mx-2 px-2">
           <motion.div
-            animate={{ x: `-${currentIndex * (100 / itemsToShow)}%` }}
+            animate={{ x: `calc(-${currentIndex * (100 / itemsToShow)}% - ${currentIndex * (24 / itemsToShow)}px)` }}
             transition={{ type: "spring", stiffness: 400, damping: 30 }}
             className="flex gap-6"
           >
@@ -185,6 +186,23 @@ export const ProductGrid = () => {
             ))}
           </div>
         </div>
+
+        {/* Action Button */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
+          className="mt-12 text-center"
+        >
+          <Link 
+            to="/products"
+            className="inline-flex items-center gap-2 px-10 py-4 bg-primary text-white rounded-full font-bold hover:bg-primary/90 transition-all duration-300 shadow-xl shadow-primary/20 group text-sm uppercase tracking-widest"
+          >
+            En savoir plus
+            <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+          </Link>
+        </motion.div>
       </div>
     </section>
 

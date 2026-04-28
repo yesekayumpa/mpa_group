@@ -70,7 +70,7 @@ export const Contact = () => {
         <div className="bg-white rounded-[60px] lg:rounded-[100px] overflow-hidden relative border border-slate-100 shadow-2xl">
           <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 -skew-x-12 translate-x-1/2" />
 
-          <div className="grid lg:grid-cols-2 gap-16 p-10 lg:p-20 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-16 p-10 lg:p-20 relative z-10 items-center">
             <div>
               <div className="space-y-8 mb-12">
                 {[
@@ -122,146 +122,89 @@ export const Contact = () => {
               whileHover={{ rotateY: 1, rotateX: -1 }}
               transition={{ duration: 0.3 }}
             >
-              {/* Animated Background Pattern */}
-              <div className="absolute inset-0 opacity-5">
+              {/* Animated Background Pattern - Enhanced Premium Look */}
+              <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                {/* Main Glow Orbs */}
                 <motion.div
                   animate={{
-                    scale: [1, 1.2, 1],
-                    rotate: [0, 180, 360],
-                    x: [0, 50, 0],
-                    y: [0, -30, 0],
+                    scale: [1, 1.4, 1],
+                    rotate: [0, 90, 0],
+                    x: [0, 30, 0],
+                    y: [0, -20, 0],
+                  }}
+                  transition={{
+                    duration: 12,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                  className="absolute -top-12 -left-12 w-64 h-64 bg-primary/10 rounded-full blur-[80px]"
+                />
+                <motion.div
+                  animate={{
+                    scale: [1.3, 1, 1.3],
+                    rotate: [90, 0, 90],
+                    x: [0, -40, 0],
+                    y: [0, 30, 0],
+                  }}
+                  transition={{
+                    duration: 15,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                  className="absolute -bottom-20 -right-20 w-80 h-80 bg-secondary/10 rounded-full blur-[100px]"
+                />
+                <motion.div
+                  animate={{
+                    scale: [1, 1.6, 1],
+                    x: [20, -20, 20],
+                    opacity: [0.05, 0.1, 0.05],
                   }}
                   transition={{
                     duration: 8,
                     repeat: Infinity,
                     ease: "easeInOut",
                   }}
-                  className="absolute top-0 left-0 w-32 h-32 bg-primary rounded-full blur-3xl"
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-accent/20 rounded-full blur-[60px]"
                 />
-                <motion.div
-                  animate={{
-                    scale: [1.2, 1, 1.2],
-                    rotate: [360, 180, 0],
-                    x: [0, -50, 0],
-                    y: [0, 30, 0],
-                  }}
-                  transition={{
-                    duration: 10,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                  className="absolute bottom-0 right-0 w-40 h-40 bg-secondary rounded-full blur-3xl"
-                />
-                <motion.div
-                  animate={{
-                    scale: [1, 1.5, 1],
-                    rotate: [0, -180, 0],
-                    x: [30, -30, 30],
-                  }}
-                  transition={{
-                    duration: 6,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-accent rounded-full blur-2xl"
-                />
-                {/* Floating particles */}
-                {[...Array(6)].map((_, i) => (
+
+                {/* Subtle Grid Overlay */}
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(28,154,58,0.03)_1px,_transparent_1px)] [background-size:24px_24px]" />
+
+                {/* Refined Particles */}
+                {[...Array(8)].map((_, i) => (
                   <motion.div
                     key={i}
                     animate={{
-                      y: [0, -100, 0],
-                      x: [0, i % 2 ? 50 : -50, 0],
-                      opacity: [0, 1, 0],
-                      scale: [0, 1, 0],
+                      y: [0, -120, 0],
+                      x: [0, Math.sin(i) * 40, 0],
+                      opacity: [0, 0.4, 0],
+                      scale: [0, 1.5, 0],
                     }}
                     transition={{
-                      duration: 3 + i * 0.5,
+                      duration: 4 + i,
                       repeat: Infinity,
-                      delay: i * 0.3,
+                      delay: i * 0.5,
                       ease: "easeInOut",
                     }}
-                    className={`absolute w-2 h-2 rounded-full ${
+                    className={`absolute w-1.5 h-1.5 rounded-full ${
                       i % 3 === 0
-                        ? "bg-primary"
+                        ? "bg-primary/30"
                         : i % 3 === 1
-                          ? "bg-secondary"
-                          : "bg-accent"
+                          ? "bg-secondary/30"
+                          : "bg-accent/30"
                     }`}
                     style={{
-                      top: `${20 + i * 15}%`,
-                      left: `${10 + i * 15}%`,
+                      top: `${20 + (i * 10)}%`,
+                      left: `${15 + (i * 10)}%`,
+                      boxShadow: '0 0 10px currentColor',
                     }}
                   />
                 ))}
+                
+                {/* Decorative Lines */}
+                <div className="absolute top-0 left-0 w-full h-full border-[0.5px] border-white/10 rounded-[40px] pointer-events-none" />
               </div>
 
-              {/* Progress Bar */}
-              <div className="relative z-10">
-                <motion.div
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                  className="flex gap-2 mb-10 p-2 bg-white/60 backdrop-blur-md rounded-3xl border border-white/30 shadow-lg"
-                  whileHover={{ scale: 1.02, rotateY: 5 }}
-                >
-                  {[1, 2, 3].map((s, index) => (
-                    <motion.div
-                      key={s}
-                      initial={{ width: 0, height: 0 }}
-                      animate={{
-                        width: step >= s ? "100%" : "0%",
-                        height: "100%",
-                        rotate: step >= s ? [0, 5, -5, 0] : 0,
-                      }}
-                      transition={{
-                        duration: 0.8,
-                        delay: 0.3 + index * 0.1,
-                        rotate: {
-                          duration: 2,
-                          repeat: Infinity,
-                          repeatDelay: 3,
-                        },
-                      }}
-                      className={`h-3 flex-1 rounded-2xl transition-all duration-500 ${step >= s ? "bg-gradient-to-r from-primary via-secondary to-primary" : "bg-slate-200"} relative overflow-hidden shadow-inner`}
-                      style={{
-                        boxShadow:
-                          step >= s
-                            ? "0 4px 15px rgba(28, 154, 58, 0.3)"
-                            : "inset 0 2px 4px rgba(0,0,0,0.1)",
-                      }}
-                    >
-                      {step >= s && (
-                        <>
-                          <motion.div
-                            initial={{ x: -100 }}
-                            animate={{ x: 100 }}
-                            transition={{
-                              duration: 2,
-                              repeat: Infinity,
-                              ease: "linear",
-                              delay: index * 0.2,
-                            }}
-                            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent"
-                          />
-                          <motion.div
-                            animate={{
-                              scale: [1, 1.1, 1],
-                              opacity: [0.3, 0.6, 0.3],
-                            }}
-                            transition={{
-                              duration: 1.5,
-                              repeat: Infinity,
-                              delay: index * 0.3,
-                            }}
-                            className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-2xl"
-                          />
-                        </>
-                      )}
-                    </motion.div>
-                  ))}
-                </motion.div>
-              </div>
 
               <AnimatePresence mode="wait">
                 {step === 1 && (

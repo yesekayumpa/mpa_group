@@ -124,15 +124,6 @@ export const Gallery = () => {
       <div className="max-w-6xl mx-auto px-6 lg:px-12 relative z-10">
         {/* Section Title */}
         <div className="text-center mb-10">
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1 bg-accent/10 rounded-full text-accent text-[9px] font-bold uppercase tracking-widest mb-3"
-          >
-            <span className="w-1.5 h-1.5 bg-accent rounded-full animate-pulse" />
-            GALERIE
-          </motion.div>
           <h2 className="text-2xl lg:text-4xl font-display font-extrabold text-white mb-3 leading-tight">
             Découvrez Notre <span className="text-accent">Histoire</span>
           </h2>
@@ -170,7 +161,7 @@ export const Gallery = () => {
           onMouseLeave={() => setIsGalleryPaused(false)}
         >
           <motion.div 
-            animate={{ x: `-${sliderIndex * (100 / galleryItemsToShow)}%` }}
+            animate={{ x: `calc(-${sliderIndex * (100 / galleryItemsToShow)}% - ${sliderIndex * (16 / galleryItemsToShow)}px)` }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
             className="flex gap-4"
           >
@@ -285,20 +276,12 @@ export const Gallery = () => {
       {/* Testimonials Section */}
       <div className="mt-10 md:mt-14 max-w-6xl mx-auto px-6 lg:px-12">
         <div className="bg-gradient-to-br from-slate-900/50 to-emerald-900/20 backdrop-blur-xl p-5 lg:p-8 rounded-2xl border border-white/10">
-          <div className="text-center mb-5">
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="inline-flex items-center gap-2 px-2 py-0.5 bg-emerald-500/10 border border-emerald-500/20 rounded-full mb-2"
-            >
-              <span className="text-emerald-400 font-semibold text-[9px] tracking-wider uppercase">TÉMOIGNAGES</span>
-            </motion.div>
-            <h3 className="text-lg lg:text-xl font-display font-bold text-white mb-2">
-              Ce Que Disent <span className="text-emerald-400">Nos Clients</span>
+          <div className="text-center mb-8">
+            <h3 className="text-2xl lg:text-3xl font-display font-black text-white mb-2">
+              L'Excellence <span className="text-emerald-400 italic">Reconnue</span>
             </h3>
-            <p className="text-slate-300 text-[12px] max-w-md mx-auto">
-              Expériences de nos partenaires internationaux
+            <p className="text-slate-400 text-[13px] max-w-md mx-auto font-light">
+              La confiance de nos partenaires internationaux est notre plus grande fierté.
             </p>
           </div>
           
@@ -315,9 +298,9 @@ export const Gallery = () => {
                 arrowHoverBackground: "#f59e0b",
               }}
               fontSizes={{
-                name: "14px",
-                designation: "11px",
-                quote: "12px",
+                name: "18px",
+                designation: "12px",
+                quote: "15px",
               }}
             />
           </div>

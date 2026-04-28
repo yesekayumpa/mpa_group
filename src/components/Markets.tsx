@@ -76,7 +76,7 @@ export const Markets = () => {
   const [selectedDestination, setSelectedDestination] = useState<typeof DESTINATIONS[0] | null>(null);
 
   return (
-    <section id="marche" className="section-padding bg-white dark:bg-slate-900 relative overflow-hidden">
+    <section id="marche" className="section-padding bg-premium relative overflow-hidden">
       {/* Background Image Overlay */}
       <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none">
         <img 
@@ -99,10 +99,10 @@ export const Markets = () => {
             <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
             {t.markets.badge}
           </motion.div>
-          <h2 className="text-4xl lg:text-6xl font-display font-extrabold text-slate-900 dark:text-white mb-6 leading-tight">
+          <h2 className="text-4xl lg:text-6xl font-display font-extrabold text-slate-900 mb-6 leading-tight">
             {t.markets.title} <span className="text-gradient">{t.markets.subtitle}</span>
           </h2>
-          <p className="text-slate-600 dark:text-slate-400 text-lg max-w-3xl mx-auto">
+          <p className="text-slate-600 text-lg max-w-3xl mx-auto">
             {t.markets.description}
           </p>
         </div>
@@ -294,8 +294,8 @@ export const Markets = () => {
                         <Globe className="w-5 h-5" />
                       </div>
                       <div>
-                        <p className="text-lg font-display font-bold text-slate-900 dark:text-white">3 Continents</p>
-                        <p className="text-[9px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-widest">Desservis</p>
+                        <p className="text-lg font-display font-bold text-slate-900">3 Continents</p>
+                        <p className="text-[9px] text-slate-500 font-bold uppercase tracking-widest">Desservis</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-2">
@@ -303,8 +303,8 @@ export const Markets = () => {
                         <Award className="w-5 h-5" />
                       </div>
                       <div>
-                        <p className="text-lg font-display font-bold text-slate-900 dark:text-white">100% Fiable</p>
-                        <p className="text-[9px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-widest">Logistique</p>
+                        <p className="text-lg font-display font-bold text-slate-900">100% Fiable</p>
+                        <p className="text-[9px] text-slate-500 font-bold uppercase tracking-widest">Logistique</p>
                       </div>
                     </div>
                   </div>

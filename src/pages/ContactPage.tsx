@@ -20,27 +20,18 @@ export const ContactPage = () => {
   return (
     <div className="pt-32 pb-20">
       {/* Section Title */}
-      <div className="text-center mb-16">
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-primary text-xs font-bold uppercase tracking-widest mb-4"
-        >
-          <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-          CONTACT
-        </motion.div>
-        <h2 className="text-4xl lg:text-6xl font-display font-extrabold text-slate-900 dark:text-white mb-6 leading-tight">
+      <div className="text-center mb-12">
+        <h2 className="text-3xl lg:text-5xl font-display font-black text-slate-900 dark:text-white mb-4 leading-tight">
           Contactez <span className="text-gradient">Nous</span>
         </h2>
-        <p className="text-slate-600 dark:text-slate-400 text-lg max-w-3xl mx-auto">
-          Prêt à collaborer ? Notre équipe est à votre disposition pour vos projets d'exportation
+        <p className="text-slate-600 dark:text-slate-400 text-base max-w-2xl mx-auto font-light">
+          Prêt à collaborer ? Notre équipe est à votre disposition pour vos projets d'exportation.
         </p>
       </div>
 
       {/* Header */}
       <section className="section-padding !py-0 mb-20">
         <div className="text-center max-w-3xl mx-auto">
-          <span className="text-primary font-bold text-sm uppercase tracking-[0.3em] mb-4 block">CONTACTEZ-NOUS</span>
           <h1 className="text-5xl lg:text-7xl font-display font-extrabold text-slate-900 dark:text-white leading-tight mb-8">
             Démarrons une <span className="text-gradient">Collaboration</span>.
           </h1>
@@ -50,24 +41,23 @@ export const ContactPage = () => {
         </div>
       </section>
 
-      <section className="section-padding !py-0 grid lg:grid-cols-3 gap-16">
-        {/* Contact Info */}
-        <div className="lg:col-span-1 space-y-12">
-          <div className="bg-white dark:bg-slate-900 p-10 rounded-[50px] border border-slate-100 dark:border-slate-800">
-            <h3 className="text-2xl font-display font-bold text-slate-900 dark:text-white mb-8">Nos Coordonnées</h3>
-            <div className="space-y-8">
+      <section className="section-padding !py-0 grid lg:grid-cols-3 gap-12">
+        <div className="lg:col-span-1 space-y-8">
+          <div className="bg-white dark:bg-slate-900 p-8 rounded-[40px] border border-slate-100 dark:border-slate-800">
+            <h3 className="text-xl font-display font-bold text-slate-900 dark:text-white mb-6">Nos Coordonnées</h3>
+            <div className="space-y-6">
               {[
                 { icon: <MapPin />, title: 'Adresse', desc: 'Médina rue 37x24, Dakar, Sénégal' },
                 { icon: <Phone />, title: 'Téléphone', desc: '+221 33 829 58 06' },
                 { icon: <Mail />, title: 'Email', desc: 'contact@mpa-group.sn' },
               ].map((item, i) => (
-                <div key={i} className="flex gap-6 items-start">
-                  <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center text-primary shrink-0">
-                    {React.cloneElement(item.icon as React.ReactElement, { className: "w-6 h-6" })}
+                <div key={i} className="flex gap-4 items-start">
+                  <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center text-primary shrink-0">
+                    {React.cloneElement(item.icon as React.ReactElement, { className: "w-5 h-5" })}
                   </div>
                   <div>
-                    <h4 className="font-display font-bold text-slate-900 dark:text-white">{item.title}</h4>
-                    <p className="text-slate-500 dark:text-slate-400 text-sm">{item.desc}</p>
+                    <h4 className="font-display font-bold text-sm text-slate-900 dark:text-white">{item.title}</h4>
+                    <p className="text-slate-500 dark:text-slate-400 text-xs">{item.desc}</p>
                   </div>
                 </div>
               ))}
@@ -99,7 +89,7 @@ export const ContactPage = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-white dark:bg-slate-900 p-10 lg:p-16 rounded-[60px] shadow-2xl shadow-slate-200/50 dark:shadow-black/50 border border-slate-100 dark:border-slate-800"
+            className="bg-white dark:bg-slate-900 p-8 lg:p-12 rounded-[40px] shadow-2xl shadow-slate-200/50 dark:shadow-black/50 border border-slate-100 dark:border-slate-800"
           >
             {/* Progress Bar */}
             <div className="flex gap-2 mb-12">
@@ -120,23 +110,23 @@ export const ContactPage = () => {
                   exit={{ opacity: 0, x: -20 }}
                   className="space-y-8"
                 >
-                  <h3 className="text-3xl font-display font-bold text-slate-900 dark:text-white">Informations de Contact</h3>
-                  <div className="grid md:grid-cols-2 gap-8">
-                    <div className="space-y-3">
-                      <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">Nom Complet</label>
-                      <input type="text" className="w-full px-8 py-5 rounded-[24px] bg-white dark:bg-slate-800 border-none focus:ring-2 focus:ring-primary/20 outline-none transition-all dark:text-white" placeholder="Votre nom" />
+                  <h3 className="text-2xl font-display font-bold text-slate-900 dark:text-white">Informations</h3>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Nom Complet</label>
+                      <input type="text" className="w-full px-6 py-4 rounded-xl bg-slate-50 dark:bg-slate-800 border-none outline-none transition-all dark:text-white text-sm" placeholder="Votre nom" />
                     </div>
-                    <div className="space-y-3">
-                      <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">Entreprise</label>
-                      <input type="text" className="w-full px-8 py-5 rounded-[24px] bg-white dark:bg-slate-800 border-none focus:ring-2 focus:ring-primary/20 outline-none transition-all dark:text-white" placeholder="Nom de votre société" />
+                    <div className="space-y-2">
+                      <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Entreprise</label>
+                      <input type="text" className="w-full px-6 py-4 rounded-xl bg-slate-50 dark:bg-slate-800 border-none outline-none transition-all dark:text-white text-sm" placeholder="Société" />
                     </div>
                   </div>
-                  <div className="space-y-3">
-                    <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">Email Professionnel</label>
-                    <input type="email" className="w-full px-8 py-5 rounded-[24px] bg-white dark:bg-slate-800 border-none focus:ring-2 focus:ring-primary/20 outline-none transition-all dark:text-white" placeholder="votre@email.com" />
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Email Professionnel</label>
+                    <input type="email" className="w-full px-6 py-4 rounded-xl bg-slate-50 dark:bg-slate-800 border-none outline-none transition-all dark:text-white text-sm" placeholder="votre@email.com" />
                   </div>
-                  <button onClick={nextStep} className="btn-elegant-primary w-full py-6 text-lg mt-10">
-                    ÉTAPE SUIVANTE <ChevronRight className="w-5 h-5" />
+                  <button onClick={nextStep} className="w-full py-4 bg-primary text-white rounded-xl font-bold text-xs uppercase tracking-widest hover:bg-primary-dark transition-all flex items-center justify-center gap-2">
+                    ÉTAPE SUIVANTE <ChevronRight className="w-4 h-4" />
                   </button>
                 </motion.div>
               )}

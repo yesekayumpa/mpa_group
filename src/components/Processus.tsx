@@ -34,19 +34,7 @@ export const Processus = () => {
     }
   ];
   return (
-    <section id="processus" className="section-padding bg-slate-50 dark:bg-slate-950 relative overflow-hidden">
-      {/* Professional Background Elements */}
-      <div className="absolute inset-0 pointer-events-none -z-10">
-        <div className="absolute top-0 left-0 w-full h-full opacity-[0.03] dark:opacity-[0.05] bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:32px_32px]" />
-        <img 
-          src="https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?auto=format&fit=crop&q=80&w=2000" 
-          alt="Field background"
-          className="absolute inset-0 w-full h-full object-cover opacity-[0.03]"
-          referrerPolicy="no-referrer"
-        />
-        <div className="absolute -top-24 -right-24 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-secondary/5 rounded-full blur-3xl" />
-      </div>
+    <section id="processus" className="section-padding bg-premium relative overflow-hidden">
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Title */}
@@ -60,10 +48,10 @@ export const Processus = () => {
             <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
             PROCESSUS
           </motion.div>
-          <h2 className="text-4xl lg:text-6xl font-display font-extrabold text-black dark:text-white mb-6 leading-tight">
+          <h2 className="text-4xl lg:text-6xl font-display font-extrabold text-slate-900 mb-6 leading-tight">
             Notre <span className="text-gradient">Processus</span>
           </h2>
-          <p className="text-slate-600 dark:text-slate-400 text-lg max-w-3xl mx-auto">
+          <p className="text-slate-600 text-lg max-w-3xl mx-auto">
             Une méthode rigoureuse pour garantir l'excellence de nos exportations
           </p>
         </div>
@@ -87,7 +75,7 @@ export const Processus = () => {
               >
                 <div className="relative group">
                   {/* Card Container */}
-                  <div className="bg-white dark:bg-slate-900/90 backdrop-blur-md p-6 rounded-3xl border border-slate-200/50 dark:border-slate-700/50 shadow-lg hover:shadow-2xl hover:shadow-primary/10 transition-all duration-700 h-full flex flex-col items-center text-center overflow-hidden relative">
+                  <div className="bg-white p-6 rounded-3xl border border-slate-200/50 shadow-lg hover:shadow-2xl hover:shadow-primary/10 transition-all duration-700 h-full flex flex-col items-center text-center overflow-hidden relative">
                     
                     {/* Animated Background Gradient */}
                     <div className="absolute inset-0 bg-gradient-to-br from-transparent via-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
@@ -113,12 +101,12 @@ export const Processus = () => {
                     <div className="relative z-10 flex-1 flex flex-col">
                                             
                       {/* Title */}
-                      <h3 className="text-lg font-display font-extrabold text-slate-900 dark:text-white mb-3 leading-tight group-hover:text-primary transition-colors duration-500">
+                      <h3 className="text-lg font-display font-extrabold text-slate-900 mb-3 leading-tight group-hover:text-primary transition-colors duration-500">
                         {step.title}
                       </h3>
                       
                       {/* Description */}
-                      <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed flex-1">
+                      <p className="text-sm text-slate-600 leading-relaxed flex-1">
                         {step.desc}
                       </p>
                       

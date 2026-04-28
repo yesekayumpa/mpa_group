@@ -94,20 +94,20 @@ export const Header = () => {
         </div>
       )}
 
-      <nav className="max-w-7xl mx-auto px-6 lg:px-12 py-4">
+      <nav className="max-w-7xl mx-auto px-6 lg:px-12 py-2">
         <div className="flex justify-between items-center">
           <Link to="/" className="flex items-center group hover:opacity-80 transition-opacity">
-            <div className="relative -my-4 md:-my-6">
+            <div className="relative -my-1 md:-my-2">
               <img 
                 src="/Logo MPA Group fond blanc-06.png" 
                 alt="MPA GROUP Logo" 
-                className="w-16 h-16 md:w-24 md:h-24 object-contain transition-transform group-hover:scale-105"
+                className="w-10 h-10 md:w-14 md:h-14 object-contain transition-transform group-hover:scale-105"
               />
             </div>
           </Link>
-
+ 
           <div className="hidden lg:flex items-center">
-            <div className="flex items-center bg-white/80 backdrop-blur-md rounded-full shadow-lg border border-white/20 px-2 py-2">
+            <div className="flex items-center bg-white/80 backdrop-blur-md rounded-full shadow-lg border border-white/20 px-1 py-1">
               {getSections(t).map((item) => {
                 const sectionId = item.href.slice(1);
                 const isActive = activeSection === sectionId;
@@ -117,7 +117,7 @@ export const Header = () => {
                     key={item.name}
                     href={item.href}
                     className={cn(
-                      "px-6 py-3 text-sm font-medium transition-all duration-300 rounded-full relative",
+                      "px-3 py-1.5 text-[10px] font-bold transition-all duration-300 rounded-full relative uppercase tracking-widest",
                       isActive 
                         ? "bg-gradient-to-r from-[#4a5d23] to-[#3a4a1a] text-white shadow-md" 
                         : "text-slate-700 hover:text-[#4a5d23] hover:bg-[#4a5d23]/5"

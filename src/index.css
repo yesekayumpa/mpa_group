@@ -77,6 +77,18 @@
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
   }
+
+  .bg-premium {
+    @apply relative bg-[#f8fafc];
+    &::before {
+      content: "";
+      @apply absolute inset-0 opacity-[0.03] pointer-events-none;
+      background-image: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=2000');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+  }
 }
 
 /* Styles CSS pour l'écran de chargement */

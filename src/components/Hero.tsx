@@ -9,19 +9,19 @@ const SLIDES = [
     title: "Cultiver l'Excellence,",
     highlight: "Exporter la Fraîcheur.",
     desc: "Nous connectons les meilleurs terroirs du Sénégal aux marchés mondiaux. Une qualité premium, une logistique maîtrisée.",
-    image: "/hero-slide-1.png"
+    image: "https://images.unsplash.com/photo-1550989460-0adf9ea622e2?auto=format&fit=crop&q=80&w=1200"
   },
   {
     title: "Le Goût Authentique,",
     highlight: "Du Sénégal au Monde.",
     desc: "Mangues Kent, Papayes Solo et Melons Charentais sélectionnés avec soin pour les palais les plus exigeants.",
-    image: "/hero-slide-2.png"
+    image: "https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&q=80&w=1200"
   },
   {
     title: "Logistique de Pointe,",
     highlight: "Fraîcheur Garantie.",
     desc: "Une chaîne de froid ininterrompue et une expertise douanière pour une livraison rapide sur trois continents.",
-    image: "/hero-slide-3.png"
+    image: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&q=80&w=1200"
   }
 ];
 
@@ -160,28 +160,29 @@ export const Hero = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-2 gap-3 md:gap-4 relative z-30">
-            {[
-              { icon: <Globe />, title: 'Export Mondial', desc: 'Présence sur 3 continents.', color: 'bg-emerald-600' },
-              { icon: <Truck />, title: 'Logistique Rapide', desc: 'Chaîne de froid optimale.', color: 'bg-orange-600' },
-              { icon: <Shield />, title: 'Qualité Premium', desc: 'Sélection rigoureuse.', color: 'bg-amber-600' },
-              { icon: <CheckCircle2 />, title: 'Prix Équitable', desc: 'Soutien aux producteurs.', color: 'bg-blue-600' },
-            ].map((item, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 + (i * 0.1) }}
-                className="bg-white p-4 md:p-6 rounded-2xl md:rounded-3xl shadow-lg shadow-slate-200/40 border border-slate-50 hover:-translate-y-1 transition-transform duration-300"
-              >
-                <div className={cn("w-8 h-8 md:w-10 md:h-10 rounded-xl flex items-center justify-center text-white mb-3 md:mb-4 shadow-md", item.color)}>
-                  {React.cloneElement(item.icon as React.ReactElement, { className: "w-4 h-4 md:w-5 md:h-5" })}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="bg-white p-12 rounded-[50px] shadow-2xl shadow-slate-200/40 border border-slate-50 relative z-30"
+          >
+            <div className="grid grid-cols-2 gap-y-16 gap-x-8">
+              {[
+                { icon: <Globe />, title: 'Export Mondial', desc: 'Présence sur 3 continents', color: 'text-emerald-600', bgColor: 'bg-emerald-50' },
+                { icon: <Truck />, title: 'Logistique', desc: 'Chaîne de froid garantie', color: 'text-orange-600', bgColor: 'bg-orange-50' },
+                { icon: <Shield />, title: 'Qualité Premium', desc: 'Sélection rigoureuse', color: 'text-amber-600', bgColor: 'bg-amber-50' },
+                { icon: <CheckCircle2 />, title: 'Prix Équitable', desc: 'Soutien aux producteurs locaux', color: 'text-blue-600', bgColor: 'bg-blue-50' },
+              ].map((item, i) => (
+                <div key={i} className="flex flex-col items-center text-center group">
+                  <div className={cn("w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110", item.bgColor, item.color)}>
+                    {React.cloneElement(item.icon as React.ReactElement, { className: "w-7 h-7" })}
+                  </div>
+                  <h3 className="text-[12px] font-display font-black text-slate-900 uppercase tracking-[0.1em] mb-2">{item.title}</h3>
+                  <p className="text-[10px] text-slate-500 font-medium leading-relaxed max-w-[180px]">{item.desc}</p>
                 </div>
-                <h3 className="text-xs md:text-sm font-display font-bold text-slate-900 mb-1">{item.title}</h3>
-                <p className="text-[10px] md:text-[11px] text-slate-500 leading-relaxed">{item.desc}</p>
-              </motion.div>
-            ))}
-          </div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

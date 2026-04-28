@@ -137,6 +137,8 @@ export const CircularTestimonials = ({
         pointerEvents: "auto",
         transform: `translateX(0px) translateY(0px) scale(1) rotateY(0deg)`,
         transition: "all 0.8s cubic-bezier(.4,2,.3,1)",
+        boxShadow: "0 0 30px rgba(16, 185, 129, 0.3)",
+        border: "2px solid rgba(16, 185, 129, 0.5)",
       };
     }
     if (isLeft) {
@@ -200,6 +202,11 @@ export const CircularTestimonials = ({
               exit="exit"
               transition={{ duration: 0.3, ease: "easeInOut" }}
             >
+              <div className="mb-4">
+                <svg width="30" height="24" viewBox="0 0 30 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="opacity-20">
+                  <path d="M0 24V11.4286L6.42857 0H12.8571L8.57143 11.4286H12.8571V24H0ZM17.1429 24V11.4286L23.5714 0H30L25.7143 11.4286H30V24H17.1429Z" fill={colorName}/>
+                </svg>
+              </div>
               <h3
                 className="name"
                 style={{ color: colorName, fontSize: fontSizeName }}
