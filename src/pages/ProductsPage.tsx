@@ -10,7 +10,7 @@ const PRODUCTS = [
     name: 'Mangue Kent',
     category: 'Fruits Exotiques',
     desc: 'La reine des mangues, charnue et sans fibres. Idéale pour l\'exportation haut de gamme.',
-    image: 'https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&q=80&w=1200',
+    image: '/african-man-harvesting-vegetables.jpg',
     season: 'Avril - Juillet',
     origin: 'Casamance & Niayes',
     specs: ['Calibres: 6, 7, 8, 9, 10, 12', 'Conditionnement: Carton 4kg', 'Certification: GlobalGAP'],
@@ -21,7 +21,7 @@ const PRODUCTS = [
     name: 'Papaye Solo',
     category: 'Fruits Exotiques',
     desc: 'Une saveur douce et une texture fondante. Riche en vitamines et très prisée en Europe.',
-    image: 'https://images.unsplash.com/photo-1610832958506-aa56368176cf?auto=format&fit=crop&q=80&w=1200',
+    image: '/delicious-papaya-still-life.jpg',
     season: 'Toute l\'année',
     origin: 'Niayes',
     specs: ['Calibres: 350g - 600g', 'Conditionnement: Carton 4.5kg', 'Certification: Bio-Sénégal'],
@@ -32,7 +32,7 @@ const PRODUCTS = [
     name: 'Melon Charentais',
     category: 'Melons & Pastèques',
     desc: 'Un parfum intense et une chair sucrée. Cultivé avec soin dans les zones sablonneuses.',
-    image: 'https://images.unsplash.com/photo-1592419044706-39796d40f98c?auto=format&fit=crop&q=80&w=1200',
+    image: '/assorted-mixed-fruits.jpg',
     season: 'Janvier - Mai',
     origin: 'Zone des Niayes',
     specs: ['Calibres: 12, 15, 18', 'Conditionnement: Caisse bois/carton', 'Certification: GlobalGAP'],
@@ -43,7 +43,7 @@ const PRODUCTS = [
     name: 'Pastèque',
     category: 'Melons & Pastèques',
     desc: 'Rafraîchissante et juteuse, nos pastèques sont sélectionnées pour leur taux de sucre élevé.',
-    image: 'https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&q=80&w=1200',
+    image: '/top-view-vegetable-composition-with-fresh-fruits-blue-table.jpg',
     season: 'Février - Juin',
     origin: 'Vallée du Fleuve Sénégal',
     specs: ['Poids: 4kg - 12kg', 'Conditionnement: Vrac ou Palox', 'Certification: Qualité Premium'],
@@ -54,7 +54,7 @@ const PRODUCTS = [
     name: 'Citron Vert',
     category: 'Agrumes',
     desc: 'Acide et parfumé, parfait pour la gastronomie et les boissons.',
-    image: 'https://images.unsplash.com/photo-1590502593747-42a996133562?auto=format&fit=crop&q=80&w=1200',
+    image: '/fresh-vegetables-are-being-sold-market.jpg',
     season: 'Toute l\'année',
     origin: 'Thiès & Casamance',
     specs: ['Calibres: 48, 54, 60', 'Conditionnement: Carton 4kg', 'Certification: GlobalGAP'],
@@ -65,7 +65,7 @@ const PRODUCTS = [
     name: 'Ananas Pain de Sucre',
     category: 'Fruits Exotiques',
     desc: 'Une douceur exceptionnelle et une chair blanche très sucrée. Le joyau des Niayes.',
-    image: 'https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&q=80&w=1200',
+    image: '/top-view-fruits-vegetables-bell-peppers-apples-carrot-coriander-cauliflower-persimmon-radish-cherry-tomatoes-red-cabbage-tomatoes-green-hot-pepper.jpg',
     season: 'Toute l\'année',
     origin: 'Niayes',
     specs: ['Calibres: 1kg - 2.5kg', 'Conditionnement: Carton 10kg', 'Certification: Bio-Sénégal'],
@@ -76,7 +76,7 @@ const PRODUCTS = [
     name: 'Avocat Hass',
     category: 'Fruits Exotiques',
     desc: 'Chair onctueuse et goût de noisette. Sélectionné pour sa maturité optimale.',
-    image: 'https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?auto=format&fit=crop&q=80&w=1200',
+    image: '/african-woman-harvesting-vegetables.jpg',
     season: 'Novembre - Mars',
     origin: 'Casamance',
     specs: ['Calibres: 12, 14, 16', 'Conditionnement: Carton 4kg', 'Certification: GlobalGAP'],
@@ -87,7 +87,7 @@ const PRODUCTS = [
     name: 'Pamplemousse Star Ruby',
     category: 'Agrumes',
     desc: 'Chair rouge intense, juteuse et parfumée. Équilibre parfait acidité-sucre.',
-    image: 'https://images.unsplash.com/photo-1557844352-761f2565b576?auto=format&fit=crop&q=80&w=1200',
+    image: '/african-man-harvesting-vegetables (1).jpg',
     season: 'Octobre - Février',
     origin: 'Thiès',
     specs: ['Calibres: 35, 40, 45', 'Conditionnement: Télescopique 15kg', 'Certification: GlobalGAP'],
@@ -98,7 +98,7 @@ const PRODUCTS = [
     name: 'Orange Valencia',
     category: 'Agrumes',
     desc: 'L\'orange idéale pour le jus, très juteuse avec peu de pépins.',
-    image: 'https://images.unsplash.com/photo-1547514701-42782101795e?auto=format&fit=crop&q=80&w=1200',
+    image: '/african-people-harvesting-vegetables.jpg',
     season: 'Mars - Juin',
     origin: 'Zone des Niayes',
     specs: ['Calibres: 64, 72, 80', 'Conditionnement: Filet ou Carton', 'Certification: Qualité Premium'],
@@ -109,7 +109,7 @@ const PRODUCTS = [
     name: 'Banane Cavendish',
     category: 'Fruits Exotiques',
     desc: 'Texture ferme et goût sucré. Cultivée selon des méthodes durables.',
-    image: 'https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?auto=format&fit=crop&q=80&w=1200',
+    image: '/african-woman-harvesting-vegetables (1).jpg',
     season: 'Toute l\'année',
     origin: 'Vallée du Fleuve',
     specs: ['Calibres: Extra-Large', 'Conditionnement: Carton 18kg', 'Certification: GlobalGAP'],
@@ -140,7 +140,7 @@ export const ProductsPage = () => {
       <section ref={heroRef} className="relative h-[45vh] min-h-[350px] flex items-center justify-center overflow-hidden">
         <motion.div style={{ y }} className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1550989460-0adf9ea622e2?q=80&w=2070&auto=format&fit=crop"
+            src="/hero-slide-2.png"
             alt="Fruits tropicaux"
             className="w-full h-full object-cover"
           />

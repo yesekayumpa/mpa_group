@@ -13,32 +13,32 @@ const TESTIMONIALS = [
     quote: "La qualité des fruits MPA GROUP est exceptionnelle ! Chaque mangue arrive parfaitement mûre avec un arôme incroyable. Nos clients en raffolent.",
     name: "Marie Dubois",
     designation: "Importateur Premium, France",
-    src: "https://images.unsplash.com/photo-1512316609839-ce289d3eba0a?q=80&w=1368&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    src: "/african-woman-harvesting-vegetables.jpg",
   },
   {
     quote: "MPA GROUP a transformé notre chaîne d'approvisionnement. Fiabilité, traçabilité et qualité constante à chaque livraison.",
     name: "Jean-Pierre Martin",
     designation: "Directeur Achats, Suisse",
-    src: "https://images.unsplash.com/photo-1628749528992-f5702133b686?q=80&w=1368&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fA%3D%3D",
+    src: "/african-man-harvesting-vegetables (1).jpg",
   },
   {
     quote: "Le service client MPA GROUP est exceptionnel. Ils comprennent nos besoins et livrent toujours dans les délais impartis.",
     name: "Fatou Ndiaye",
     designation: "Distributeur International, Espagne",
-    src: "https://images.unsplash.com/photo-1524267213992-b76e8577d046?q=80&w=1368&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fA%3D%3D",
+    src: "/african-woman-harvesting-vegetables (1).jpg",
   },
 ];
 
 const IMAGES = [
-  { id: 1, src: 'https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&q=80&w=1200', title: 'Plantations de Mangues', category: 'Plantation' },
-  { id: 2, src: 'https://images.unsplash.com/photo-1592419044706-39796d40f98c?auto=format&fit=crop&q=80&w=1200', title: 'Conditionnement Moderne', category: 'Entrepôt' },
-  { id: 3, src: 'https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&q=80&w=1200', title: 'Récolte de Saison', category: 'Récolte' },
-  { id: 4, src: 'https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&q=80&w=1200', title: 'Contrôle Qualité', category: 'Qualité' },
-  { id: 5, src: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=1200', title: 'Logistique Fret', category: 'Logistique' },
-  { id: 6, src: 'https://images.unsplash.com/photo-1591073113125-e46713c829ed?auto=format&fit=crop&q=80&w=1200', title: 'Exportation Mondiale', category: 'Export' },
-  { id: 7, src: 'https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?auto=format&fit=crop&q=80&w=1200', title: 'Serres de Précision', category: 'Plantation' },
-  { id: 8, src: 'https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&q=80&w=1200', title: 'Tri Automatisé', category: 'Entrepôt' },
-  { id: 9, src: 'https://images.unsplash.com/photo-1560493676-04071c5f467b?auto=format&fit=crop&q=80&w=1200', title: 'Agriculture Durable', category: 'Plantation' },
+  { id: 1, src: '/african-man-harvesting-vegetables.jpg', title: 'Plantations de Mangues', category: 'Plantation' },
+  { id: 2, src: '/red-fresh-tomatoes-gathered-into-cardboaard-boxes-purchasing.jpg', title: 'Conditionnement Moderne', category: 'Entrepôt' },
+  { id: 3, src: '/african-people-harvesting-vegetables.jpg', title: 'Récolte de Saison', category: 'Récolte' },
+  { id: 4, src: '/smiling-african-american-farm-worker-with-crate-full-ripening-fresh-leafy-greens-nutritious-vegan-food-from-sustainable-crop-harvest-entrepreneurial-bio-permaculture-greenhouse-farm.jpg', title: 'Contrôle Qualité', category: 'Qualité' },
+  { id: 5, src: '/front-view-man-delivering-groceries.jpg', title: 'Logistique Fret', category: 'Logistique' },
+  { id: 6, src: '/monde.png', title: 'Exportation Mondiale', category: 'Export' },
+  { id: 7, src: '/african-people-harvesting-vegetables (1).jpg', title: 'Serres de Précision', category: 'Plantation' },
+  { id: 8, src: '/fresh-vegetables-are-being-sold-market.jpg', title: 'Tri Automatisé', category: 'Entrepôt' },
+  { id: 9, src: '/african-man-harvesting-vegetables (2).jpg', title: 'Agriculture Durable', category: 'Plantation' },
 ];
 
 export const Gallery = () => {
@@ -114,7 +114,7 @@ export const Gallery = () => {
       {/* Background Image Overlay */}
       <div className="absolute inset-0 z-0 opacity-[0.05] pointer-events-none">
         <img 
-          src="https://images.unsplash.com/photo-1592419044706-39796d40f98c?auto=format&fit=crop&q=80&w=2000" 
+          src="/african-people-harvesting-vegetables.jpg" 
           alt="Gallery background"
           className="w-full h-full object-cover"
           referrerPolicy="no-referrer"

@@ -83,11 +83,15 @@
     &::before {
       content: "";
       @apply absolute inset-0 opacity-[0.03] pointer-events-none;
-      background-image: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=2000');
+      background-image: url('/hero-slide-1.png');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
     }
+  }
+
+  .glass-card {
+    @apply bg-white/10 backdrop-blur-md border border-white/20 shadow-xl;
   }
 }
 

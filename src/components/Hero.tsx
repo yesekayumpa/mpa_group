@@ -9,19 +9,22 @@ const SLIDES = [
     title: "Cultiver l'Excellence,",
     highlight: "Exporter la Fraîcheur.",
     desc: "Nous connectons les meilleurs terroirs du Sénégal aux marchés mondiaux. Une qualité premium, une logistique maîtrisée.",
-    image: "https://images.unsplash.com/photo-1550989460-0adf9ea622e2?auto=format&fit=crop&q=80&w=1200"
+    image: "/hero-slide-1.png",
+    buttonText: "Nos Produits"
   },
   {
     title: "Le Goût Authentique,",
     highlight: "Du Sénégal au Monde.",
     desc: "Mangues Kent, Papayes Solo et Melons Charentais sélectionnés avec soin pour les palais les plus exigeants.",
-    image: "https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&q=80&w=1200"
+    image: "/hero-slide-2.png",
+    buttonText: "Notre Catalogue"
   },
   {
     title: "Logistique de Pointe,",
     highlight: "Fraîcheur Garantie.",
     desc: "Une chaîne de froid ininterrompue et une expertise douanière pour une livraison rapide sur trois continents.",
-    image: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&q=80&w=1200"
+    image: "/hero-slide-3.png",
+    buttonText: "Nos Services"
   }
 ];
 
@@ -40,14 +43,14 @@ export const Hero = () => {
   }, []);
 
   return (
-    <section id="accueil" className="relative pt-24 lg:pt-32 pb-12 overflow-hidden">
+    <section id="accueil" className="relative pt-20 lg:pt-32 pb-8 lg:pb-12 overflow-hidden">
       {/* Background Elements */}
       <div className="absolute top-0 right-0 w-1/3 h-full bg-slate-50 dark:bg-slate-900/50 -z-10 rounded-l-[80px] hidden lg:block" />
       <div className="absolute top-20 left-10 w-48 h-48 bg-primary/5 rounded-full blur-3xl -z-10" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="relative h-[400px] flex flex-col justify-center">
+          <div className="relative min-h-[350px] lg:h-[400px] flex flex-col justify-center">
             <AnimatePresence mode="wait">
               <motion.div
                 key={current}
@@ -61,7 +64,7 @@ export const Hero = () => {
                   <span className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse" />
                   Bienvenue chez MPA GROUP
                 </div>
-                <h1 className="text-4xl lg:text-6xl font-display font-extrabold text-slate-900 dark:text-white leading-tight mb-6">
+                <h1 className="text-3xl sm:text-4xl lg:text-6xl font-display font-extrabold text-slate-900 dark:text-white leading-tight mb-6">
                   {SLIDES[current].title} <br />
                   <span className="text-gradient">{SLIDES[current].highlight}</span>
                 </h1>
@@ -70,7 +73,7 @@ export const Hero = () => {
                 </p>
                 <div className="flex flex-wrap gap-4 items-center">
                   <button className="btn-elegant-primary !px-8 !py-3 text-xs tracking-widest uppercase">
-                    NOS PRODUITS <ArrowRight className="w-4 h-4" />
+                    {SLIDES[current].buttonText} <ArrowRight className="w-4 h-4" />
                   </button>
                   <button className="flex items-center gap-3 font-bold text-orange-500 dark:text-orange-400 hover:text-orange-600 transition-colors group text-xs tracking-widest uppercase">
                     <div className="w-10 h-10 rounded-full border border-orange-300 dark:border-orange-700 flex items-center justify-center group-hover:border-orange-500 transition-colors">
@@ -89,7 +92,7 @@ export const Hero = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="relative"
           >
-            <div className="relative h-[420px]">
+            <div className="relative h-[300px] sm:h-[350px] lg:h-[420px]">
               <AnimatePresence mode="wait">
                 <motion.div 
                   key={current}

@@ -20,7 +20,7 @@ export const MarketsPage = () => {
         <div className="relative h-[350px] rounded-[40px] overflow-hidden bg-white border border-slate-100 dark:bg-slate-900 dark:border-slate-800">
           <div className="absolute inset-0 opacity-10">
             <img 
-              src="https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&q=80&w=1920" 
+              src="/monde.png" 
               alt="Marché mondial MPA GROUP" 
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"
@@ -48,7 +48,7 @@ export const MarketsPage = () => {
             destinations: ["France", "Espagne", "Italie", "Allemagne", "Pays-Bas"],
             icon: <Globe />,
             color: "bg-blue-500",
-            image: "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&q=80&w=800"
+            image: "/side-view-women-shaking-hands.jpg"
           },
           {
             region: "Asie",
@@ -56,7 +56,7 @@ export const MarketsPage = () => {
             destinations: ["Chine", "Japon", "Singapour", "Corée du Sud"],
             icon: <Globe />,
             color: "bg-red-500",
-            image: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&q=80&w=800"
+            image: "/top-view-fruits-vegetables-bell-peppers-apples-carrot-coriander-cauliflower-persimmon-radish-cherry-tomatoes-red-cabbage-tomatoes-green-hot-pepper.jpg"
           },
           {
             region: "Afrique & Moyen-Orient",
@@ -64,9 +64,10 @@ export const MarketsPage = () => {
             destinations: ["Maroc", "Côte d'Ivoire", "Émirats Arabes Unis", "Arabie Saoudite"],
             icon: <Globe />,
             color: "bg-emerald-500",
-            image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&q=80&w=800"
+            image: "/front-view-smiley-woman-with-harvest.jpg"
           }
-        ].map((market, i) => (
+        ]
+.map((market, i) => (
           <div key={i} className="bg-white dark:bg-slate-900 rounded-[50px] shadow-xl shadow-slate-200/50 dark:shadow-black/50 border border-slate-100 dark:border-slate-800 group hover:bg-primary transition-all duration-500 overflow-hidden flex flex-col">
             <div className="h-48 overflow-hidden">
               <img 

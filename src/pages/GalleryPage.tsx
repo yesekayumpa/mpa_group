@@ -3,15 +3,15 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Maximize2, X, ChevronLeft, ChevronRight, Camera, Image as ImageIcon } from 'lucide-react';
 
 const IMAGES = [
-  { url: 'https://images.unsplash.com/photo-1557800636-894a64c1696f?auto=format&fit=crop&q=80&w=1000', title: 'Récolte des Mangues', category: 'Plantations' },
-  { url: 'https://images.unsplash.com/photo-1610832958506-aa56368176cf?auto=format&fit=crop&q=80&w=1000', title: 'Papayes Solo', category: 'Produits' },
-  { url: 'https://images.unsplash.com/photo-1592419044706-39796d40f98c?auto=format&fit=crop&q=80&w=1000', title: 'Melons Charentais', category: 'Produits' },
-  { url: 'https://images.unsplash.com/photo-1580913209249-6abd4f5a69df?auto=format&fit=crop&q=80&w=1000', title: 'Station de Tri', category: 'Logistique' },
-  { url: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=1000', title: 'Entrepôt Froid', category: 'Logistique' },
-  { url: 'https://images.unsplash.com/photo-1494412574743-019485676a38?auto=format&fit=crop&q=80&w=1000', title: 'Chargement Maritime', category: 'Logistique' },
-  { url: 'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=1000', title: 'Nos Plantations', category: 'Plantations' },
-  { url: 'https://images.unsplash.com/photo-1591354839917-2c5279468b5e?auto=format&fit=crop&q=80&w=1000', title: 'Citrons Verts', category: 'Produits' },
-  { url: 'https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&q=80&w=1000', title: 'Pastèques', category: 'Produits' },
+  { url: '/african-man-harvesting-vegetables.jpg', title: 'Récolte des Mangues', category: 'Plantations' },
+  { url: '/delicious-papaya-still-life.jpg', title: 'Papayes Solo', category: 'Produits' },
+  { url: '/assorted-mixed-fruits.jpg', title: 'Melons Charentais', category: 'Produits' },
+  { url: '/red-fresh-tomatoes-gathered-into-cardboaard-boxes-purchasing.jpg', title: 'Station de Tri', category: 'Logistique' },
+  { url: '/smiling-african-american-farm-worker-with-crate-full-ripening-fresh-leafy-greens-nutritious-vegan-food-from-sustainable-crop-harvest-entrepreneurial-bio-permaculture-greenhouse-farm.jpg', title: 'Entrepôt Froid', category: 'Logistique' },
+  { url: '/front-view-man-delivering-groceries.jpg', title: 'Chargement Maritime', category: 'Logistique' },
+  { url: '/african-people-harvesting-vegetables.jpg', title: 'Nos Plantations', category: 'Plantations' },
+  { url: '/fresh-vegetables-are-being-sold-market.jpg', title: 'Citrons Verts', category: 'Produits' },
+  { url: '/top-view-vegetable-composition-with-fresh-fruits-blue-table.jpg', title: 'Pastèques', category: 'Produits' },
 ];
 
 const CATEGORIES = ['Tous', 'Plantations', 'Produits', 'Logistique'];

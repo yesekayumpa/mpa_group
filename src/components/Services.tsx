@@ -8,25 +8,25 @@ const SERVICES = [
     title: 'Conditionnement', 
     desc: 'Stations de tri et d\'emballage modernes respectant les normes internationales.', 
     icon: <Package />,
-    image: 'https://images.unsplash.com/photo-1595246140625-573b715d11dc?auto=format&fit=crop&q=80&w=800'
+    image: '/red-fresh-tomatoes-gathered-into-cardboaard-boxes-purchasing.jpg'
   },
   { 
     title: 'Logistique & Fret', 
     desc: 'Gestion complète de la chaîne de froid par voie maritime et aérienne.', 
     icon: <Ship />,
-    image: 'https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&q=80&w=800'
+    image: '/front-view-man-delivering-groceries.jpg'
   },
   { 
     title: 'Expertise Douanière', 
     desc: 'Accompagnement administratif pour l\'exportation vers l\'Europe et l\'Asie.', 
     icon: <FileText />,
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800'
+    image: '/portrait-man-practicing-his-profession-celebrate-international-labour-day.jpg'
   },
   { 
     title: 'Contrôle Qualité', 
     desc: 'Certifications GlobalGAP et traçabilité rigoureuse de chaque lot.', 
     icon: <ShieldCheck />,
-    image: 'https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&q=80&w=800'
+    image: '/smiling-african-american-farm-worker-with-crate-full-ripening-fresh-leafy-greens-nutritious-vegan-food-from-sustainable-crop-harvest-entrepreneurial-bio-permaculture-greenhouse-farm.jpg'
   },
 ];
 
@@ -61,7 +61,7 @@ export const Services = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="group relative h-[450px] rounded-[40px] overflow-hidden shadow-2xl shadow-slate-200/50 dark:shadow-none border border-slate-100 dark:border-slate-800"
+              className="group relative h-[380px] sm:h-[450px] rounded-[40px] overflow-hidden shadow-2xl shadow-slate-200/50 border border-slate-100"
             >
               {/* Background Image */}
               <img 

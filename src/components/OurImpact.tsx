@@ -56,7 +56,7 @@ const STATS = [
       <div className="flex -space-x-2 mt-4">
         {[1, 2, 3, 4].map((i) => (
           <div key={i} className="w-8 h-8 rounded-full border-2 border-white bg-slate-200 flex items-center justify-center overflow-hidden">
-            <img src={`https://i.pravatar.cc/100?u=${i}`} alt="User" className="w-full h-full object-cover" />
+            <img src={`/african-man-harvesting-vegetables (${i}).jpg`} alt="User" className="w-full h-full object-cover" />
           </div>
         ))}
         <div className="w-8 h-8 rounded-full border-2 border-white bg-primary text-[10px] font-bold text-white flex items-center justify-center">
@@ -133,25 +133,25 @@ export const OurImpact = () => {
           >
             <div className="rounded-[40px] overflow-hidden shadow-2xl relative group">
               <img 
-                src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&q=80&w=1000" 
+                src="/african-man-harvesting-vegetables.jpg" 
                 alt="Impact Social" 
                 className="w-full h-full object-cover aspect-[4/3] group-hover:scale-105 transition-transform duration-700"
                 referrerPolicy="no-referrer"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex items-end p-10">
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent flex items-end p-10">
                 <div className="text-white">
-                  <Award className="w-12 h-12 text-accent mb-4" />
-                  <h3 className="text-2xl font-display font-bold mb-2">Responsabilité Sociale</h3>
-                  <p className="text-white/80 text-sm">Nous investissons 5% de nos bénéfices dans des projets d'éducation et de santé locaux.</p>
+                  <Award className="w-12 h-12 text-accent mb-4 shadow-sm" />
+                  <h3 className="text-2xl font-display font-bold mb-2 text-white drop-shadow-md">Responsabilité Sociale</h3>
+                  <p className="text-white/90 text-sm leading-relaxed drop-shadow-sm">Nous investissons 5% de nos bénéfices dans des projets d'éducation et de santé locaux.</p>
                 </div>
               </div>
             </div>
             
-            {/* Floating Card */}
-            <div className="absolute -top-10 -right-10 glass-card p-8 rounded-3xl hidden md:block max-w-[200px] animate-float">
-              <TrendingUp className="text-secondary w-8 h-8 mb-3" />
-              <p className="text-2xl font-display font-extrabold text-slate-900">+25%</p>
-              <p className="text-xs text-slate-500 font-bold uppercase tracking-wider">Revenu moyen des producteurs</p>
+            {/* Floating Card - Reduced size for a more refined look */}
+            <div className="absolute top-4 right-4 md:-top-6 md:-right-6 bg-white/10 backdrop-blur-xl border border-white/20 p-4 md:p-5 rounded-3xl max-w-[140px] md:max-w-[160px] animate-float z-20 shadow-2xl">
+              <TrendingUp className="text-accent w-6 h-6 mb-2 drop-shadow-md" />
+              <p className="text-xl md:text-2xl font-display font-black text-white drop-shadow-lg">+25%</p>
+              <p className="text-[8px] md:text-[10px] text-white font-bold uppercase tracking-wider leading-tight drop-shadow-md">Revenu moyen des producteurs</p>
             </div>
           </motion.div>
 

@@ -80,7 +80,7 @@ export const Markets = () => {
       {/* Background Image Overlay */}
       <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none">
         <img 
-          src="https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&q=80&w=2000" 
+          src="/monde.png" 
           alt="World background"
           className="w-full h-full object-cover"
           referrerPolicy="no-referrer"

@@ -25,7 +25,7 @@ const SERVICES = [
     title: "Logistique Internationale",
     desc: "Gestion complète du transport maritime et aérien avec des partenaires de confiance pour une livraison rapide.",
     icon: <Ship />,
-    image: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&q=80&w=1200",
+    image: "/front-view-man-delivering-groceries.jpg",
     gradient: "from-blue-600/20 to-cyan-600/20",
     features: ["Suivi en temps réel", "Chaîne de froid garantie", "Optimisation des coûts"]
   },
@@ -33,7 +33,7 @@ const SERVICES = [
     title: "Conditionnement Premium",
     desc: "Emballages adaptés aux normes internationales pour préserver la fraîcheur et l'intégrité des fruits.",
     icon: <Package />,
-    image: "https://images.unsplash.com/photo-1595246140625-573b715d11dc?auto=format&fit=crop&q=80&w=1200",
+    image: "/red-fresh-tomatoes-gathered-into-cardboaard-boxes-purchasing.jpg",
     gradient: "from-emerald-600/20 to-teal-600/20",
     features: ["Tri optique", "Packaging éco-responsable", "Protection anti-choc"]
   },
@@ -41,7 +41,7 @@ const SERVICES = [
     title: "Contrôle Qualité",
     desc: "Inspection rigoureuse à chaque étape, de la récolte à l'expédition, garantissant le respect des normes.",
     icon: <ShieldCheck />,
-    image: "https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&q=80&w=1200",
+    image: "/smiling-african-american-farm-worker-with-crate-full-ripening-fresh-leafy-greens-nutritious-vegan-food-from-sustainable-crop-harvest-entrepreneurial-bio-permaculture-greenhouse-farm.jpg",
     gradient: "from-purple-600/20 to-pink-600/20",
     features: ["Certification GlobalGAP", "Traçabilité totale", "Analyses labo"]
   },
@@ -49,7 +49,7 @@ const SERVICES = [
     title: "Conseil Stratégique",
     desc: "Accompagnement de nos clients sur les tendances du marché et optimisation des calendriers.",
     icon: <BarChart3 />,
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1200",
+    image: "/top-view-vegetable-composition-with-fresh-fruits-blue-table.jpg",
     gradient: "from-orange-600/20 to-red-600/20",
     features: ["Analyse de marché", "Calendrier export", "Sourcing dédié"]
   }
@@ -69,7 +69,7 @@ export const ServicesPage = () => {
       <section className="relative h-[40vh] min-h-[350px] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=2000" 
+            src="/hero-slide-3.png" 
             className="w-full h-full object-cover"
             alt="Logistics expertise"
             referrerPolicy="no-referrer"

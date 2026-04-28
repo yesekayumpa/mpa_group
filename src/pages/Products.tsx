@@ -7,42 +7,42 @@ const products = [
     name: "Mangue Kent",
     category: "Fruits Frais",
     desc: "La reine des mangues sénégalaises, charnue et sans fibres.",
-    image: "https://images.unsplash.com/photo-1553279768-865429fa0078?q=80&w=1974&auto=format&fit=crop",
+    image: "/delicious-papaya-still-life.jpg",
     season: "Avril - Août"
   },
   {
     name: "Melon Charentais",
     category: "Fruits Frais",
     desc: "Sucre intense et parfum envoûtant, cultivé sous le soleil du Sénégal.",
-    image: "https://images.unsplash.com/photo-1571575173700-afb9492e6a50?q=80&w=2070&auto=format&fit=crop",
+    image: "/assorted-mixed-fruits.jpg",
     season: "Décembre - Mai"
   },
   {
     name: "Pastèque",
     category: "Fruits Frais",
     desc: "Rafraîchissante et gorgée de soleil, idéale pour l'exportation.",
-    image: "https://images.unsplash.com/photo-1587049352846-4a222e784d38?q=80&w=2070&auto=format&fit=crop",
+    image: "/top-view-vegetable-composition-with-fresh-fruits-blue-table.jpg",
     season: "Toute l'année"
   },
   {
     name: "Papaye Solo",
     category: "Fruits Exotiques",
     desc: "Une chair orangée délicieuse et riche en vitamines.",
-    image: "https://images.unsplash.com/photo-1526609110255-38606450c11d?q=80&w=2070&auto=format&fit=crop",
+    image: "/red-fresh-tomatoes-gathered-into-cardboaard-boxes-purchasing.jpg",
     season: "Toute l'année"
   },
   {
     name: "Citron Vert",
     category: "Agrumes",
     desc: "Acidité parfaite et arôme puissant pour la gastronomie.",
-    image: "https://images.unsplash.com/photo-1591438676302-133441c58eb7?q=80&w=2070&auto=format&fit=crop",
+    image: "/smiling-african-american-farm-worker-with-crate-full-ripening-fresh-leafy-greens-nutritious-vegan-food-from-sustainable-crop-harvest-entrepreneurial-bio-permaculture-greenhouse-farm.jpg",
     season: "Juin - Octobre"
   },
   {
     name: "Noix de Coco",
     category: "Fruits Exotiques",
     desc: "Fraîcheur tropicale directement depuis les côtes sénégalaises.",
-    image: "https://images.unsplash.com/photo-1584306671823-12c840947078?q=80&w=2070&auto=format&fit=crop",
+    image: "/front-view-man-delivering-groceries.jpg",
     season: "Toute l'année"
   }
 ];

@@ -10,7 +10,7 @@ export const AboutPage = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="relative h-[350px] rounded-[40px] overflow-hidden shadow-2xl">
             <img 
-              src="https://images.unsplash.com/photo-1550989460-0adf9ea622e2?auto=format&fit=crop&q=80&w=1200" 
+              src="/african-people-harvesting-vegetables.jpg" 
               alt="Champs de mangues" 
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"
@@ -114,10 +114,10 @@ export const AboutPage = () => {
           </div>
           <div className="grid md:grid-cols-4 gap-6">
             {[
-              { name: "Amadou Diallo", role: "Directeur Général", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400" },
-              { name: "Fatou Sow", role: "Responsable Qualité", image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400" },
-              { name: "Moussa Sarr", role: "Directeur Logistique", image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=400" },
-              { name: "Aissatou Fall", role: "Relations Internationales", image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=400" }
+              { name: "Amadou Diallo", role: "Directeur Général", image: "/african-man-harvesting-vegetables (1).jpg" },
+              { name: "Fatou Sow", role: "Responsable Qualité", image: "/african-woman-harvesting-vegetables (1).jpg" },
+              { name: "Moussa Sarr", role: "Directeur Logistique", image: "/african-man-harvesting-vegetables (2).jpg" },
+              { name: "Aissatou Fall", role: "Relations Internationales", image: "/african-people-harvesting-vegetables (1).jpg" }
             ].map((member, i) => (
               <div key={i} className="group">
                 <div className="relative h-80 rounded-[40px] overflow-hidden mb-6 shadow-lg group-hover:shadow-2xl transition-all duration-500">

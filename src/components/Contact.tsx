@@ -37,7 +37,7 @@ export const Contact = () => {
       {/* Background Image Overlay */}
       <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none">
         <img
-          src="https://images.unsplash.com/photo-1534536281715-e28d76689b4d?auto=format&fit=crop&q=80&w=2000"
+          src="/monde.png"
           alt="Contact background"
           className="w-full h-full object-cover"
           referrerPolicy="no-referrer"
@@ -349,7 +349,7 @@ export const Contact = () => {
                         rotateY: -5,
                         rotateX: 5,
                       }}
-                      className="relative w-full py-6 text-lg mt-8 bg-gradient-to-r from-primary via-secondary to-accent bg-[length:300%_300%] animate-gradient-shift text-white font-bold rounded-3xl shadow-xl hover:shadow-2xl hover:shadow-primary/50 transition-all duration-500 overflow-hidden group"
+                      className="relative w-full py-4 text-base mt-6 bg-gradient-to-r from-primary via-secondary to-accent bg-[length:300%_300%] animate-gradient-shift text-white font-bold rounded-2xl shadow-xl hover:shadow-2xl hover:shadow-primary/50 transition-all duration-500 overflow-hidden group"
                       style={{
                         transformStyle: "preserve-3d",
                         perspective: "1000px",

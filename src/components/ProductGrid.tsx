@@ -5,12 +5,12 @@ import { Link } from 'react-router-dom';
 import { cn } from '../lib/utils';
 
 const PRODUCTS = [
-  { id: '1', name: 'Mangue Kent', category: 'Mangues', image: 'https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&q=80&w=800', season: 'Mai - Août' },
-  { id: '2', name: 'Papaye Solo', category: 'Exotiques', image: 'https://images.unsplash.com/photo-1526318896980-cf78c088247c?auto=format&fit=crop&q=80&w=1200', season: 'Toute l\'année' },
-  { id: '3', name: 'Melon Charentais', category: 'Melons', image: 'https://images.unsplash.com/photo-1571575173700-afb9492e6a50?auto=format&fit=crop&q=80&w=800', season: 'Nov - Avril' },
-  { id: '4', name: 'Pastèque sans pépins', category: 'Melons', image: 'https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&q=80&w=800', season: 'Déc - Mai' },
-  { id: '5', name: 'Mangue Keitt', category: 'Mangues', image: 'https://images.unsplash.com/photo-1591073113125-e46713c829ed?auto=format&fit=crop&q=80&w=800', season: 'Juil - Sept' },
-  { id: '6', name: 'Citron Vert', category: 'Agrumes', image: 'https://images.unsplash.com/photo-1590502593747-42a996133562?auto=format&fit=crop&q=80&w=800', season: 'Toute l\'année' },
+  { id: '1', name: 'Mangue Kent', category: 'Mangues', image: '/african-man-harvesting-vegetables.jpg', season: 'Mai - Août' },
+  { id: '2', name: 'Papaye Solo', category: 'Exotiques', image: '/delicious-papaya-still-life.jpg', season: 'Toute l\'année' },
+  { id: '3', name: 'Melon Charentais', category: 'Melons', image: '/assorted-mixed-fruits.jpg', season: 'Nov - Avril' },
+  { id: '4', name: 'Pastèque sans pépins', category: 'Melons', image: '/top-view-vegetable-composition-with-fresh-fruits-blue-table.jpg', season: 'Déc - Mai' },
+  { id: '5', name: 'Mangue Keitt', category: 'Mangues', image: '/african-woman-harvesting-vegetables.jpg', season: 'Juil - Sept' },
+  { id: '6', name: 'Citron Vert', category: 'Agrumes', image: '/fresh-vegetables-are-being-sold-market.jpg', season: 'Toute l\'année' },
 ];
 export const ProductGrid = () => {
   const [filter, setFilter] = useState('Tous');

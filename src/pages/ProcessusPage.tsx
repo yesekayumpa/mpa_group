@@ -49,7 +49,7 @@ export const ProcessusPage = () => {
               desc: "Nos agronomes sélectionnent les meilleures parcelles. La récolte se fait manuellement au stade optimal de maturité pour garantir le meilleur goût et une conservation longue durée.",
               icon: <ClipboardList />,
               color: "bg-emerald-500",
-              image: "https://images.unsplash.com/photo-1592419044706-39796d40f98c?auto=format&fit=crop&q=80&w=1000",
+              image: "/african-people-harvesting-vegetables.jpg",
               reverse: false
             },
             {
@@ -58,7 +58,7 @@ export const ProcessusPage = () => {
               desc: "Dans nos stations certifiées, les fruits sont lavés, triés par calibre et emballés selon les exigences spécifiques de chaque client et marché de destination.",
               icon: <PackageCheck />,
               color: "bg-orange-500",
-              image: "https://images.unsplash.com/photo-1580913209249-6abd4f5a69df?auto=format&fit=crop&q=80&w=1000",
+              image: "/red-fresh-tomatoes-gathered-into-cardboaard-boxes-purchasing.jpg",
               reverse: true
             },
             {
@@ -67,7 +67,7 @@ export const ProcessusPage = () => {
               desc: "Chaque lot subit un contrôle phytosanitaire rigoureux. Les fruits sont ensuite pré-réfrigérés pour stabiliser leur température avant le chargement.",
               icon: <ShieldCheck />,
               color: "bg-amber-500",
-              image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=1000",
+              image: "/smiling-african-american-farm-worker-with-crate-full-ripening-fresh-leafy-greens-nutritious-vegan-food-from-sustainable-crop-harvest-entrepreneurial-bio-permaculture-greenhouse-farm.jpg",
               reverse: false
             },
             {
@@ -76,7 +76,7 @@ export const ProcessusPage = () => {
               desc: "Le transport s'effectue en conteneurs Reefer (maritime) ou par avion. Nous assurons un suivi en temps réel jusqu'à la livraison finale chez nos partenaires.",
               icon: <Truck />,
               color: "bg-blue-500",
-              image: "https://images.unsplash.com/photo-1494412574743-019485676a38?auto=format&fit=crop&q=80&w=1000",
+              image: "/front-view-man-delivering-groceries.jpg",
               reverse: true
             }
           ].map((item, i) => (

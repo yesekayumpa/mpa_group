@@ -16,42 +16,42 @@ const TESTIMONIALS = [
     role: "Importateur, France",
     content: "La qualité des mangues Kent de MPA GROUP est tout simplement exceptionnelle. La régularité des calibres et le respect de la chaîne du froid en font notre partenaire privilégié au Sénégal.",
     rating: 5,
-    avatar: "https://i.pravatar.cc/150?u=jp"
+    avatar: "/african-man-harvesting-vegetables (1).jpg"
   },
   {
     name: "Elena Rodriguez",
     role: "Responsable Achats, Espagne",
     content: "Nous travaillons avec MPA GROUP depuis 3 ans pour nos approvisionnements en papayes Solo. Leur professionnalisme et leur réactivité logistique sont des atouts majeurs pour notre distribution.",
     rating: 5,
-    avatar: "https://i.pravatar.cc/150?u=elena"
+    avatar: "/african-woman-harvesting-vegetables (1).jpg"
   },
   {
     name: "Marco Rossi",
     role: "Grossiste, Italie",
     content: "Le melon Charentais du Sénégal a une saveur unique. Grâce à MPA GROUP, nous recevons des produits d'une fraîcheur irréprochable, comme s'ils venaient d'être cueillis.",
     rating: 5,
-    avatar: "https://i.pravatar.cc/150?u=marco"
+    avatar: "/african-man-harvesting-vegetables (2).jpg"
   },
   {
     name: "Sarah Williams",
     role: "Distributeur, Royaume-Uni",
     content: "MPA GROUP se distingue par sa transparence et son engagement éthique. C'est rassurant de savoir que nos fruits proviennent de sources responsables et certifiées.",
     rating: 5,
-    avatar: "https://i.pravatar.cc/150?u=sarah"
+    avatar: "/african-people-harvesting-vegetables (1).jpg"
   },
   {
     name: "Ahmed Al-Fayed",
     role: "Importateur, Dubaï",
     content: "Une logistique aérienne performante qui nous permet de proposer des fruits tropicaux sénégalais de première qualité sur le marché du Moyen-Orient.",
     rating: 5,
-    avatar: "https://i.pravatar.cc/150?u=ahmed"
+    avatar: "/african-man-harvesting-vegetables.jpg"
   },
   {
     name: "Sophie Lefebvre",
     role: "Centrale d'Achat, Belgique",
     content: "Le service client est impeccable. MPA GROUP comprend les exigences du marché européen et s'adapte parfaitement à nos besoins spécifiques de conditionnement.",
     rating: 5,
-    avatar: "https://i.pravatar.cc/150?u=sophie"
+    avatar: "/african-woman-harvesting-vegetables.jpg"
   }
 ];
 

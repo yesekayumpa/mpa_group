@@ -53,13 +53,12 @@ const About: React.FC = () => {
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="relative"
+            className="relative rounded-[3rem] overflow-hidden shadow-2xl"
           >
             <img
-              src="https://images.unsplash.com/photo-1592419044706-39796d40f98c?q=80&w=2050&auto=format&fit=crop"
-              alt="Team working"
-              className="rounded-3xl shadow-2xl"
-              referrerPolicy="no-referrer"
+              src="/hero-slide-1.png"
+              alt="MPA GROUP Operations"
+              className="w-full h-full object-cover"
             />
             <div className="absolute -bottom-10 -left-10 bg-emerald-600 text-white p-8 rounded-3xl hidden md:block">
               <p className="text-4xl font-bold mb-1">15+</p>

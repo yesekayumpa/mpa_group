@@ -230,7 +230,7 @@ export const ContactPage = () => {
           </div>
           {/* In a real app, you would embed a Google Map or Mapbox here */}
           <img 
-            src="https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&q=80&w=1920" 
+            src="/monde.png" 
             alt="Map" 
             className="w-full h-full object-cover opacity-20 grayscale"
             referrerPolicy="no-referrer"

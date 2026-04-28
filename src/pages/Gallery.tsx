@@ -2,15 +2,15 @@ import React from 'react';
 import { motion } from 'motion/react';
 
 const images = [
-  { url: "https://images.unsplash.com/photo-1610832958506-aa56368176cf?q=80&w=2070&auto=format&fit=crop", title: "Récolte de Mangues", category: "Production" },
-  { url: "https://images.unsplash.com/photo-1592419044706-39796d40f98c?q=80&w=2050&auto=format&fit=crop", title: "Centre de Tri", category: "Processus" },
-  { url: "https://images.unsplash.com/photo-1553279768-865429fa0078?q=80&w=1974&auto=format&fit=crop", title: "Qualité Export", category: "Produits" },
-  { url: "https://images.unsplash.com/photo-1571575173700-afb9492e6a50?q=80&w=2070&auto=format&fit=crop", title: "Melons du Sénégal", category: "Produits" },
-  { url: "https://images.unsplash.com/photo-1587049352846-4a222e784d38?q=80&w=2070&auto=format&fit=crop", title: "Logistique Maritime", category: "Logistique" },
-  { url: "https://images.unsplash.com/photo-1526609110255-38606450c11d?q=80&w=2070&auto=format&fit=crop", title: "Papayes Fraîches", category: "Produits" },
-  { url: "https://images.unsplash.com/photo-1591438676302-133441c58eb7?q=80&w=2070&auto=format&fit=crop", title: "Champs de Citrons", category: "Production" },
-  { url: "https://images.unsplash.com/photo-1584306671823-12c840947078?q=80&w=2070&auto=format&fit=crop", title: "Noix de Coco", category: "Produits" },
-  { url: "https://images.unsplash.com/photo-1550989460-0adf9ea622e2?q=80&w=1974&auto=format&fit=crop", title: "Équipe MPA", category: "Équipe" }
+  { url: "/hero-slide-1.png", title: "Récolte de Mangues", category: "Production" },
+  { url: "/hero-slide-1.png", title: "Centre de Tri", category: "Processus" },
+  { url: "/hero-slide-1.png", title: "Qualité Export", category: "Produits" },
+  { url: "/hero-slide-1.png", title: "Melons du Sénégal", category: "Produits" },
+  { url: "/hero-slide-1.png", title: "Logistique Maritime", category: "Logistique" },
+  { url: "/hero-slide-1.png", title: "Papayes Fraîches", category: "Produits" },
+  { url: "/hero-slide-1.png", title: "Champs de Citrons", category: "Production" },
+  { url: "/hero-slide-1.png", title: "Noix de Coco", category: "Produits" },
+  { url: "/hero-slide-1.png", title: "Équipe MPA", category: "Équipe" }
 ];
 
 const Gallery: React.FC = () => {

@@ -84,7 +84,7 @@ const Market: React.FC = () => {
         <div className="relative h-[400px] bg-emerald-900 rounded-[3rem] overflow-hidden flex items-center justify-center">
           <div className="absolute inset-0 opacity-20">
             <img
-              src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?q=80&w=2033&auto=format&fit=crop"
+              src="/hero-slide-1.png"
               alt="World Map"
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"

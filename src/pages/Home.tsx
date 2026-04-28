@@ -14,7 +14,7 @@ const Home: React.FC = () => {
       <section className="relative h-screen flex items-center pt-20">
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?q=80&w=2070&auto=format&fit=crop"
+            src="/hero-slide-1.png"
             alt="Tropical Fruits"
             className="w-full h-full object-cover"
             referrerPolicy="no-referrer"
@@ -123,37 +123,37 @@ const Home: React.FC = () => {
             {[
               {
                 title: "Produits",
-                image: "https://images.unsplash.com/photo-1550989460-0adf9ea622e2?q=80&w=1974&auto=format&fit=crop",
+                image: "/delicious-papaya-still-life.jpg",
                 link: "/products",
                 description: "Découvrez notre catalogue de fruits tropicaux premium"
               },
               {
                 title: "Services", 
-                image: "https://images.unsplash.com/photo-1605000797499-95a51c5269ae?q=80&w=1974&auto=format&fit=crop",
+                image: "/front-view-man-delivering-groceries.jpg",
                 link: "/services",
                 description: "Solutions logistiques complètes et personnalisées"
               },
               {
                 title: "Processus",
-                image: "https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?q=80&w=1974&auto=format&fit=crop",
+                image: "/red-fresh-tomatoes-gathered-into-cardboaard-boxes-purchasing.jpg",
                 link: "/processus", 
                 description: "De la récolte à l'exportation, excellence garantie"
               },
               {
                 title: "Marché",
-                image: "https://images.unsplash.com/photo-1526304640581-d1e0f8945835?q=80&w=1974&auto=format&fit=crop",
+                image: "/monde.png",
                 link: "/market",
                 description: "Présence internationale et réseaux mondiaux"
               },
               {
                 title: "Galerie",
-                image: "https://images.unsplash.com/photo-1519996529931-28324d5a630e?q=80&w=1974&auto=format&fit=crop",
+                image: "/african-people-harvesting-vegetables.jpg",
                 link: "/gallery",
                 description: "Nos réalisations et projets d'excellence"
               },
               {
                 title: "Contact",
-                image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1974&auto=format&fit=crop",
+                image: "/side-view-women-shaking-hands.jpg",
                 link: "/contact",
                 description: "Contactez nos experts pour un devis personnalisé"
               }
