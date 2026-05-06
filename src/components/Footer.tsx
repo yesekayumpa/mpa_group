@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { MapPin, Mail, Phone, Facebook, Twitter, Instagram, Linkedin, Globe, Send, ArrowRight } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { Link } from 'react-router-dom';
 
 export const Footer = () => {
   const { language, setLanguage } = useLanguage();
@@ -69,6 +70,7 @@ export const Footer = () => {
                 { name: 'Marché', href: '#marche' },
                 { name: 'Galerie', href: '#galerie' },
                 { name: 'Contact', href: '#contact' },
+                { name: 'Offres & Tarifs', href: '/conditions' },
               ].map((item, index) => (
                 <motion.li 
                   key={item.name}
@@ -77,15 +79,27 @@ export const Footer = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: 0.2 + index * 0.05 }}
                 >
-                  <motion.a 
-                    href={item.href} 
-                    className="hover:text-primary transition-colors inline-block relative group"
-                    whileHover={{ x: 5 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    {item.name}
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary group-hover:w-full transition-all duration-300" />
-                  </motion.a>
+                  {item.href.startsWith('/') ? (
+                    <Link 
+                      to={item.href} 
+                      className="hover:text-primary transition-colors inline-block relative group"
+                    >
+                      <motion.span whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
+                        {item.name}
+                      </motion.span>
+                      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary group-hover:w-full transition-all duration-300" />
+                    </Link>
+                  ) : (
+                    <motion.a 
+                      href={item.href} 
+                      className="hover:text-primary transition-colors inline-block relative group"
+                      whileHover={{ x: 5 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      {item.name}
+                      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary group-hover:w-full transition-all duration-300" />
+                    </motion.a>
+                  )}
                 </motion.li>
               ))}
             </ul>

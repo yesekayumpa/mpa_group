@@ -28,6 +28,7 @@ import { ProcessusPage } from './pages/ProcessusPage';
 import { MarketsPage } from './pages/MarketsPage';
 import { GalleryPage } from './pages/GalleryPage';
 import { ContactPage } from './pages/ContactPage';
+import { ConditionsPage } from './pages/ConditionsPage';
 
 /**
  * Composant HomePage regroupant toutes les sections de la page d'accueil
@@ -102,6 +103,7 @@ export default function App() {
         <Route path="/market" element={<MarketsPage />} />
         <Route path="/gallery" element={<GalleryPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/conditions" element={<ConditionsPage />} />
       </Routes>
 
       <Footer />

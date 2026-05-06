@@ -194,17 +194,16 @@ export const Contact = () => {
                           : "bg-accent/30"
                     }`}
                     style={{
-                      top: `${20 + (i * 10)}%`,
-                      left: `${15 + (i * 10)}%`,
-                      boxShadow: '0 0 10px currentColor',
+                      top: `${20 + i * 10}%`,
+                      left: `${15 + i * 10}%`,
+                      boxShadow: "0 0 10px currentColor",
                     }}
                   />
                 ))}
-                
+
                 {/* Decorative Lines */}
                 <div className="absolute top-0 left-0 w-full h-full border-[0.5px] border-white/10 rounded-[40px] pointer-events-none" />
               </div>
-
 
               <AnimatePresence mode="wait">
                 {step === 1 && (

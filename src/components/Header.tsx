@@ -13,6 +13,7 @@ const getSections = (t: any) => [
   { name: t.nav.market, href: '#marche' },
   { name: t.nav.gallery, href: '#galerie' },
   { name: t.nav.contact, href: '#contact' },
+  { name: 'Offres & Tarifs', href: '/conditions' },
 ];
 
 export const Header = () => {
@@ -112,7 +113,17 @@ export const Header = () => {
                 const sectionId = item.href.slice(1);
                 const isActive = activeSection === sectionId;
                 
-                return (
+                return item.href.startsWith('/') ? (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    className={cn(
+                      "px-3 py-1.5 text-[10px] font-bold transition-all duration-300 rounded-full relative uppercase tracking-widest text-slate-700 hover:text-[#4a5d23] hover:bg-[#4a5d23]/5"
+                    )}
+                  >
+                    {item.name}
+                  </Link>
+                ) : (
                   <a
                     key={item.name}
                     href={item.href}
@@ -154,7 +165,16 @@ export const Header = () => {
                 const sectionId = item.href.slice(1);
                 const isActive = activeSection === sectionId;
                 
-                return (
+                return item.href.startsWith('/') ? (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    onClick={() => setIsMenuOpen(false)}
+                    className="px-4 py-3 text-sm font-medium transition-all duration-300 rounded-xl relative text-slate-700 hover:text-[#4a5d23] hover:bg-[#4a5d23]/5"
+                  >
+                    {item.name}
+                  </Link>
+                ) : (
                   <motion.a
                     key={item.name}
                     href={item.href}

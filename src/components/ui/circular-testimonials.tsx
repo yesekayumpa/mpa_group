@@ -43,7 +43,9 @@ function calculateGap(width: number) {
   if (width <= minWidth) return minGap;
   if (width >= maxWidth)
     return Math.max(minGap, maxGap + 0.06018 * (width - maxWidth));
-  return minGap + (maxGap - minGap) * ((width - minWidth) / (maxWidth - minWidth));
+  return (
+    minGap + (maxGap - minGap) * ((width - minWidth) / (maxWidth - minWidth))
+  );
 }
 
 export const CircularTestimonials = ({
@@ -75,7 +77,7 @@ export const CircularTestimonials = ({
   const testimonialsLength = useMemo(() => testimonials.length, [testimonials]);
   const activeTestimonial = useMemo(
     () => testimonials[activeIndex],
-    [activeIndex, testimonials]
+    [activeIndex, testimonials],
   );
 
   // Responsive gap calculation
@@ -98,7 +100,8 @@ export const CircularTestimonials = ({
       }, 5000);
     }
     return () => {
-      if (autoplayIntervalRef.current) clearInterval(autoplayIntervalRef.current);
+      if (autoplayIntervalRef.current)
+        clearInterval(autoplayIntervalRef.current);
     };
   }, [autoplay, testimonialsLength]);
 
@@ -118,7 +121,9 @@ export const CircularTestimonials = ({
     if (autoplayIntervalRef.current) clearInterval(autoplayIntervalRef.current);
   }, [testimonialsLength]);
   const handlePrev = useCallback(() => {
-    setActiveIndex((prev) => (prev - 1 + testimonialsLength) % testimonialsLength);
+    setActiveIndex(
+      (prev) => (prev - 1 + testimonialsLength) % testimonialsLength,
+    );
     if (autoplayIntervalRef.current) clearInterval(autoplayIntervalRef.current);
   }, [testimonialsLength]);
 
@@ -126,9 +131,11 @@ export const CircularTestimonials = ({
   function getImageStyle(index: number): React.CSSProperties {
     const gap = calculateGap(containerWidth);
     const maxStickUp = gap * 0.8;
-    const offset = (index - activeIndex + testimonialsLength) % testimonialsLength;
+    const offset =
+      (index - activeIndex + testimonialsLength) % testimonialsLength;
     const isActive = index === activeIndex;
-    const isLeft = (activeIndex - 1 + testimonialsLength) % testimonialsLength === index;
+    const isLeft =
+      (activeIndex - 1 + testimonialsLength) % testimonialsLength === index;
     const isRight = (activeIndex + 1) % testimonialsLength === index;
     if (isActive) {
       return {
@@ -203,8 +210,18 @@ export const CircularTestimonials = ({
               transition={{ duration: 0.3, ease: "easeInOut" }}
             >
               <div className="mb-4">
-                <svg width="30" height="24" viewBox="0 0 30 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="opacity-20">
-                  <path d="M0 24V11.4286L6.42857 0H12.8571L8.57143 11.4286H12.8571V24H0ZM17.1429 24V11.4286L23.5714 0H30L25.7143 11.4286H30V24H17.1429Z" fill={colorName}/>
+                <svg
+                  width="30"
+                  height="24"
+                  viewBox="0 0 30 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="opacity-20"
+                >
+                  <path
+                    d="M0 24V11.4286L6.42857 0H12.8571L8.57143 11.4286H12.8571V24H0ZM17.1429 24V11.4286L23.5714 0H30L25.7143 11.4286H30V24H17.1429Z"
+                    fill={colorName}
+                  />
                 </svg>
               </div>
               <h3
@@ -215,7 +232,10 @@ export const CircularTestimonials = ({
               </h3>
               <p
                 className="designation"
-                style={{ color: colorDesignation, fontSize: fontSizeDesignation }}
+                style={{
+                  color: colorDesignation,
+                  fontSize: fontSizeDesignation,
+                }}
               >
                 {activeTestimonial.designation}
               </p>
@@ -338,6 +358,41 @@ export const CircularTestimonials = ({
         }
         .word {
           display: inline-block;
+        }
+        @media (max-width: 767px) {
+          .testimonial-container {
+            padding: 0.5rem;
+            max-width: 75%;
+            margin: 0 auto;
+          }
+          .testimonial-grid {
+            gap: 2rem;
+          }
+          .image-container {
+            height: 12rem;
+          }
+          .testimonial-image {
+            border-radius: 1rem;
+          }
+          .name {
+            font-size: 1rem !important;
+          }
+          .designation {
+            font-size: 0.75rem !important;
+            margin-bottom: 0.75rem;
+          }
+          .quote {
+            font-size: 0.875rem !important;
+            line-height: 1.5;
+          }
+          .arrow-buttons {
+            padding-right: 0.5rem;
+            gap: 0.5rem;
+          }
+          .arrow-button {
+            width: 1.5rem;
+            height: 1.5rem;
+          }
         }
         @media (min-width: 768px) {
           .testimonial-grid {

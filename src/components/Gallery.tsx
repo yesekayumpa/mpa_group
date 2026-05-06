@@ -1,28 +1,46 @@
-import React, { useState, useMemo, useEffect, useCallback } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { Maximize2, X, ChevronLeft, ChevronRight, Camera, Filter } from 'lucide-react';
-import { cn } from '../lib/utils';
-import { TrueFocus } from './TrueFocus';
-import { BorderGlow } from './BorderGlow';
-import { CircularTestimonials } from './ui/circular-testimonials';
+import React, { useState, useMemo, useEffect, useCallback } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import {
+  Maximize2,
+  X,
+  ChevronLeft,
+  ChevronRight,
+  Camera,
+  Filter,
+} from "lucide-react";
+import { cn } from "../lib/utils";
+import { TrueFocus } from "./TrueFocus";
+import { BorderGlow } from "./BorderGlow";
+import { CircularTestimonials } from "./ui/circular-testimonials";
 
-const CATEGORIES = ['Tous', 'Plantation', 'Récolte', 'Entrepôt', 'Qualité', 'Logistique', 'Export'];
+const CATEGORIES = [
+  "Tous",
+  "Plantation",
+  "Récolte",
+  "Entrepôt",
+  "Qualité",
+  "Logistique",
+  "Export",
+];
 
 const TESTIMONIALS = [
   {
-    quote: "La qualité des fruits MPA GROUP est exceptionnelle ! Chaque mangue arrive parfaitement mûre avec un arôme incroyable. Nos clients en raffolent.",
+    quote:
+      "La qualité des fruits MPA GROUP est exceptionnelle ! Chaque mangue arrive parfaitement mûre avec un arôme incroyable. Nos clients en raffolent.",
     name: "Marie Dubois",
     designation: "Importateur Premium, France",
     src: "/african-woman-harvesting-vegetables.jpg",
   },
   {
-    quote: "MPA GROUP a transformé notre chaîne d'approvisionnement. Fiabilité, traçabilité et qualité constante à chaque livraison.",
+    quote:
+      "MPA GROUP a transformé notre chaîne d'approvisionnement. Fiabilité, traçabilité et qualité constante à chaque livraison.",
     name: "Jean-Pierre Martin",
     designation: "Directeur Achats, Suisse",
     src: "/african-man-harvesting-vegetables (1).jpg",
   },
   {
-    quote: "Le service client MPA GROUP est exceptionnel. Ils comprennent nos besoins et livrent toujours dans les délais impartis.",
+    quote:
+      "Le service client MPA GROUP est exceptionnel. Ils comprennent nos besoins et livrent toujours dans les délais impartis.",
     name: "Fatou Ndiaye",
     designation: "Distributeur International, Espagne",
     src: "/african-woman-harvesting-vegetables (1).jpg",
@@ -30,24 +48,69 @@ const TESTIMONIALS = [
 ];
 
 const IMAGES = [
-  { id: 1, src: '/african-man-harvesting-vegetables.jpg', title: 'Plantations de Mangues', category: 'Plantation' },
-  { id: 2, src: '/red-fresh-tomatoes-gathered-into-cardboaard-boxes-purchasing.jpg', title: 'Conditionnement Moderne', category: 'Entrepôt' },
-  { id: 3, src: '/african-people-harvesting-vegetables.jpg', title: 'Récolte de Saison', category: 'Récolte' },
-  { id: 4, src: '/smiling-african-american-farm-worker-with-crate-full-ripening-fresh-leafy-greens-nutritious-vegan-food-from-sustainable-crop-harvest-entrepreneurial-bio-permaculture-greenhouse-farm.jpg', title: 'Contrôle Qualité', category: 'Qualité' },
-  { id: 5, src: '/front-view-man-delivering-groceries.jpg', title: 'Logistique Fret', category: 'Logistique' },
-  { id: 6, src: '/monde.png', title: 'Exportation Mondiale', category: 'Export' },
-  { id: 7, src: '/african-people-harvesting-vegetables (1).jpg', title: 'Serres de Précision', category: 'Plantation' },
-  { id: 8, src: '/fresh-vegetables-are-being-sold-market.jpg', title: 'Tri Automatisé', category: 'Entrepôt' },
-  { id: 9, src: '/african-man-harvesting-vegetables (2).jpg', title: 'Agriculture Durable', category: 'Plantation' },
+  {
+    id: 1,
+    src: "/african-man-harvesting-vegetables.jpg",
+    title: "Plantations de Mangues",
+    category: "Plantation",
+  },
+  {
+    id: 2,
+    src: "/red-fresh-tomatoes-gathered-into-cardboaard-boxes-purchasing.jpg",
+    title: "Conditionnement Moderne",
+    category: "Entrepôt",
+  },
+  {
+    id: 3,
+    src: "/african-people-harvesting-vegetables.jpg",
+    title: "Récolte de Saison",
+    category: "Récolte",
+  },
+  {
+    id: 4,
+    src: "/smiling-african-american-farm-worker-with-crate-full-ripening-fresh-leafy-greens-nutritious-vegan-food-from-sustainable-crop-harvest-entrepreneurial-bio-permaculture-greenhouse-farm.jpg",
+    title: "Contrôle Qualité",
+    category: "Qualité",
+  },
+  {
+    id: 5,
+    src: "/front-view-man-delivering-groceries.jpg",
+    title: "Logistique Fret",
+    category: "Logistique",
+  },
+  {
+    id: 6,
+    src: "/top-view-fruits-vegetables-bell-peppers-apples-carrot-coriander-cauliflower-persimmon-radish-cherry-tomatoes-red-cabbage-tomatoes-green-hot-pepper.jpg",
+    title: "Exportation Mondiale",
+    category: "Export",
+  },
+  {
+    id: 7,
+    src: "/african-people-harvesting-vegetables (1).jpg",
+    title: "Serres de Précision",
+    category: "Plantation",
+  },
+  {
+    id: 8,
+    src: "/fresh-vegetables-are-being-sold-market.jpg",
+    title: "Tri Automatisé",
+    category: "Entrepôt",
+  },
+  {
+    id: 9,
+    src: "/african-man-harvesting-vegetables (2).jpg",
+    title: "Agriculture Durable",
+    category: "Plantation",
+  },
 ];
 
 export const Gallery = () => {
   const [selectedId, setSelectedId] = useState<number | null>(null);
-  const [filter, setFilter] = useState('Tous');
+  const [filter, setFilter] = useState("Tous");
 
   const filteredImages = useMemo(() => {
-    if (filter === 'Tous') return IMAGES;
-    return IMAGES.filter(img => img.category === filter);
+    if (filter === "Tous") return IMAGES;
+    return IMAGES.filter((img) => img.category === filter);
   }, [filter]);
 
   const [sliderIndex, setSliderIndex] = useState(0);
@@ -62,8 +125,8 @@ export const Gallery = () => {
       // Wait, user said "slider de 3 images sur l'ecran".
     };
     handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   // Update galleryItemsToShow to 3 on desktop as requested
@@ -71,7 +134,10 @@ export const Gallery = () => {
     if (window.innerWidth >= 1024) setGalleryItemsToShow(3);
   }, []);
 
-  const maxSliderIndex = Math.max(0, filteredImages.length - galleryItemsToShow);
+  const maxSliderIndex = Math.max(
+    0,
+    filteredImages.length - galleryItemsToShow,
+  );
 
   const nextGallerySlide = useCallback(() => {
     setSliderIndex((prev) => (prev >= maxSliderIndex ? 0 : prev + 1));
@@ -85,7 +151,7 @@ export const Gallery = () => {
     if (isGalleryPaused) return;
     const interval = setInterval(() => {
       nextGallerySlide();
-    }, 2500);
+    }, 4000);
     return () => clearInterval(interval);
   }, [isGalleryPaused, nextGallerySlide]);
 
@@ -93,8 +159,8 @@ export const Gallery = () => {
     setSliderIndex(0);
   }, [filter]);
 
-  const currentIndex = IMAGES.findIndex(img => img.id === selectedId);
-  
+  const currentIndex = IMAGES.findIndex((img) => img.id === selectedId);
+
   const handleNext = (e: React.MouseEvent) => {
     e.stopPropagation();
     const nextIndex = (currentIndex + 1) % IMAGES.length;
@@ -107,14 +173,17 @@ export const Gallery = () => {
     setSelectedId(IMAGES[prevIndex].id);
   };
 
-  const currentImage = IMAGES.find(img => img.id === selectedId);
+  const currentImage = IMAGES.find((img) => img.id === selectedId);
 
   return (
-    <section id="galerie" className="py-10 md:py-16 bg-slate-950 overflow-hidden relative">
+    <section
+      id="galerie"
+      className="py-10 md:py-16 bg-slate-950 overflow-hidden relative"
+    >
       {/* Background Image Overlay */}
       <div className="absolute inset-0 z-0 opacity-[0.05] pointer-events-none">
-        <img 
-          src="/african-people-harvesting-vegetables.jpg" 
+        <img
+          src="/african-people-harvesting-vegetables.jpg"
           alt="Gallery background"
           className="w-full h-full object-cover"
           referrerPolicy="no-referrer"
@@ -129,9 +198,9 @@ export const Gallery = () => {
           </h2>
         </div>
 
-        <div className="mb-8 text-center">      
+        <div className="mb-8 text-center">
           {/* Filter Controls */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -144,9 +213,9 @@ export const Gallery = () => {
                 onClick={() => setFilter(cat)}
                 className={cn(
                   "px-4 py-1.5 rounded-full text-[8px] font-bold uppercase tracking-widest transition-all duration-300 border-2",
-                  filter === cat 
-                    ? "bg-accent border-accent text-white shadow-md shadow-accent/20" 
-                    : "bg-white/5 border-white/10 text-slate-400 hover:border-accent hover:text-accent"
+                  filter === cat
+                    ? "bg-accent border-accent text-white shadow-md shadow-accent/20"
+                    : "bg-white/5 border-white/10 text-slate-400 hover:border-accent hover:text-accent",
                 )}
               >
                 {cat}
@@ -155,13 +224,15 @@ export const Gallery = () => {
           </motion.div>
         </div>
 
-        <div 
+        <div
           className="relative overflow-hidden -mx-2 px-2"
           onMouseEnter={() => setIsGalleryPaused(true)}
           onMouseLeave={() => setIsGalleryPaused(false)}
         >
-          <motion.div 
-            animate={{ x: `calc(-${sliderIndex * (100 / galleryItemsToShow)}% - ${sliderIndex * (16 / galleryItemsToShow)}px)` }}
+          <motion.div
+            animate={{
+              x: `calc(-${sliderIndex * (100 / galleryItemsToShow)}% - ${sliderIndex * (16 / galleryItemsToShow)}px)`,
+            }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
             className="flex gap-4"
           >
@@ -170,24 +241,32 @@ export const Gallery = () => {
                 key={img.id}
                 className={cn(
                   "flex-shrink-0 transition-all duration-500",
-                  galleryItemsToShow === 1 ? "w-full" : galleryItemsToShow === 2 ? "w-[calc(50%-8px)]" : "w-[calc(33.333%-11px)]"
+                  galleryItemsToShow === 1
+                    ? "w-full"
+                    : galleryItemsToShow === 2
+                      ? "w-[calc(50%-8px)]"
+                      : "w-[calc(33.333%-11px)]",
                 )}
               >
                 <div
-                  className="group relative aspect-[4/5] rounded-[24px] overflow-hidden cursor-pointer shadow-xl shadow-black/50 border border-white/5"
+                  className="group relative aspect-[3/4] rounded-[16px] overflow-hidden cursor-pointer shadow-xl shadow-black/50 border border-white/5 md:rounded-[24px] md:aspect-[4/5]"
                   onClick={() => setSelectedId(img.id)}
                 >
-                  <img 
-                    src={img.src} 
-                    alt={img.title} 
+                  <img
+                    src={img.src}
+                    alt={img.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
                     referrerPolicy="no-referrer"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-6">
-                    <span className="text-accent text-[9px] font-bold uppercase tracking-widest mb-1 transform translate-y-3 group-hover:translate-y-0 transition-transform duration-500 delay-75">{img.category}</span>
-                    <h3 className="text-lg font-display font-bold text-white mb-3 transform translate-y-3 group-hover:translate-y-0 transition-transform duration-500 delay-150">{img.title}</h3>
-                    <div className="w-8 h-8 rounded-lg bg-white/10 backdrop-blur-xl flex items-center justify-center text-white transform translate-y-3 group-hover:translate-y-0 transition-all duration-500 delay-200 border border-white/20">
-                      <Maximize2 className="w-4 h-4" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-3 md:p-6">
+                    <span className="text-accent text-[7px] md:text-[9px] font-bold uppercase tracking-widest mb-1 transform translate-y-3 group-hover:translate-y-0 transition-transform duration-500 delay-75">
+                      {img.category}
+                    </span>
+                    <h3 className="text-sm md:text-lg font-display font-bold text-white mb-2 md:mb-3 transform translate-y-3 group-hover:translate-y-0 transition-transform duration-500 delay-150">
+                      {img.title}
+                    </h3>
+                    <div className="w-6 h-6 md:w-8 md:h-8 rounded-lg bg-white/10 backdrop-blur-xl flex items-center justify-center text-white transform translate-y-3 group-hover:translate-y-0 transition-all duration-500 delay-200 border border-white/20">
+                      <Maximize2 className="w-3 h-3 md:w-4 md:h-4" />
                     </div>
                   </div>
                 </div>
@@ -198,13 +277,13 @@ export const Gallery = () => {
 
         {/* Gallery Navigation Bottom */}
         <div className="mt-6 flex justify-end gap-2">
-          <button 
+          <button
             onClick={prevGallerySlide}
             className="w-9 h-9 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-white hover:bg-accent hover:border-accent transition-all duration-300"
           >
             <ChevronLeft className="w-4 h-4" />
           </button>
-          <button 
+          <button
             onClick={nextGallerySlide}
             className="w-9 h-9 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-white hover:bg-accent hover:border-accent transition-all duration-300"
           >
@@ -223,45 +302,49 @@ export const Gallery = () => {
             className="fixed inset-0 z-[100] bg-slate-950/98 backdrop-blur-2xl flex items-center justify-center p-4 md:p-6"
             onClick={() => setSelectedId(null)}
           >
-            <button 
-              className="absolute top-4 right-4 md:top-6 md:right-6 text-white/50 hover:text-white transition-colors z-[110]" 
+            <button
+              className="absolute top-4 right-4 md:top-6 md:right-6 text-white/50 hover:text-white transition-colors z-[110]"
               onClick={() => setSelectedId(null)}
             >
               <X className="w-8 h-8 md:w-10 md:h-10" />
             </button>
 
-            <button 
+            <button
               className="absolute left-2 md:left-6 text-white/50 hover:text-white transition-colors z-[110] bg-white/5 p-2 rounded-full backdrop-blur-md"
               onClick={handlePrev}
             >
               <ChevronLeft className="w-6 h-6 md:w-8 md:h-8" />
             </button>
 
-            <button 
+            <button
               className="absolute right-2 md:right-6 text-white/50 hover:text-white transition-colors z-[110] bg-white/5 p-2 rounded-full backdrop-blur-md"
               onClick={handleNext}
             >
               <ChevronRight className="w-6 h-6 md:w-8 md:h-8" />
             </button>
 
-            <motion.div 
+            <motion.div
               initial={{ scale: 0.9, opacity: 0, y: 20 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.9, opacity: 0, y: 20 }}
               className="relative max-w-4xl w-full max-h-[75vh] rounded-[24px] overflow-hidden shadow-2xl border border-white/10"
               onClick={(e) => e.stopPropagation()}
             >
-              <img 
-                src={currentImage.src} 
-                alt={currentImage.title} 
+              <img
+                src={currentImage.src}
+                alt={currentImage.title}
                 className="w-full h-full object-contain bg-black/40"
                 referrerPolicy="no-referrer"
               />
               <div className="absolute bottom-0 left-0 w-full p-4 md:p-8 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent">
                 <div className="flex flex-col md:flex-row md:items-end justify-between gap-3">
                   <div>
-                    <span className="text-accent text-[10px] font-bold uppercase tracking-widest mb-1 block">{currentImage.category}</span>
-                    <h3 className="text-xl md:text-3xl font-display font-bold text-white leading-tight">{currentImage.title}</h3>
+                    <span className="text-accent text-[10px] font-bold uppercase tracking-widest mb-1 block">
+                      {currentImage.category}
+                    </span>
+                    <h3 className="text-xl md:text-3xl font-display font-bold text-white leading-tight">
+                      {currentImage.title}
+                    </h3>
                   </div>
                   <div className="text-white/40 font-mono text-[10px]">
                     {currentIndex + 1} / {IMAGES.length}
@@ -278,13 +361,15 @@ export const Gallery = () => {
         <div className="bg-gradient-to-br from-slate-900/50 to-emerald-900/20 backdrop-blur-xl p-5 lg:p-8 rounded-2xl border border-white/10">
           <div className="text-center mb-8">
             <h3 className="text-2xl lg:text-3xl font-display font-black text-white mb-2">
-              L'Excellence <span className="text-emerald-400 italic">Reconnue</span>
+              L'Excellence{" "}
+              <span className="text-emerald-400 italic">Reconnue</span>
             </h3>
             <p className="text-slate-400 text-[13px] max-w-md mx-auto font-light">
-              La confiance de nos partenaires internationaux est notre plus grande fierté.
+              La confiance de nos partenaires internationaux est notre plus
+              grande fierté.
             </p>
           </div>
-          
+
           <div className="flex justify-center">
             <CircularTestimonials
               testimonials={TESTIMONIALS}
