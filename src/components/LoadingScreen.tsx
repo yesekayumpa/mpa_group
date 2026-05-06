@@ -15,7 +15,7 @@ export const LoadingScreen = ({ onComplete }: { onComplete?: () => void }) => {
     const timer = setTimeout(() => {
       setIsLoading(false);
       onComplete?.();
-    }, 800); // Reduced to 0.8s for even faster loading
+    }, 300); // Reduced to 0.3s for faster loading
     return () => clearTimeout(timer);
   }, [onComplete]);
 
@@ -30,9 +30,9 @@ export const LoadingScreen = ({ onComplete }: { onComplete?: () => void }) => {
           transition={{ duration: 0.5, ease: "easeInOut" }}
           className="fixed inset-0 z-[100] flex flex-col items-center justify-center overflow-hidden bg-[#1c9a3a]"
         >
-          {/* Background Particles - snappier */}
+          {/* Background Particles - optimized */}
           <div className="absolute inset-0">
-            {[...Array(15)].map((_, i) => (
+            {[...Array(6)].map((_, i) => (
               <motion.div
                 key={i}
                 initial={{
@@ -46,12 +46,13 @@ export const LoadingScreen = ({ onComplete }: { onComplete?: () => void }) => {
                 }}
                 animate={{
                   scale: [0, 1, 0],
-                  opacity: [0, 0.4, 0],
+                  opacity: [0, 0.3, 0],
                 }}
                 transition={{
-                  duration: Math.random() * 2 + 1,
+                  duration: 3,
                   repeat: Infinity,
                   ease: "easeInOut",
+                  delay: i * 0.5,
                 }}
                 className="absolute w-1 h-1 bg-white rounded-full"
               />

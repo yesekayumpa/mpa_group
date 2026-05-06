@@ -121,6 +121,7 @@ export const Hero = () => {
                     src={SLIDES[current].image}
                     alt="Fruits tropicaux frais"
                     className="w-full h-full object-cover"
+                    loading="lazy"
                     referrerPolicy="no-referrer"
                   />
                 </motion.div>
